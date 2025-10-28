@@ -4,6 +4,8 @@
 import React from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
+import AnimatedNumber from "@/components/ui/animated-number";
+
 
 // Framer Motion (Combined into one line)
 import { motion, useScroll, useTransform } from 'framer-motion';
@@ -154,7 +156,7 @@ export default function Home() {
               initial={{ opacity: 0, x: -50 }}
               {...fadeInView}
             >
-              <CardStack items={CORE_SERVICES} />
+              {/* <CardStack items={CORE_SERVICES} /> */}
             </motion.div>
             <motion.div
               initial={{ opacity: 0, x: 50 }}
