@@ -11,10 +11,6 @@ import { motion, useScroll, useTransform } from 'framer-motion';
 // Lucide Icons (Combined into one line)
 import { ArrowRight, MoveRight, Layers, Target, CheckCircle } from 'lucide-react';
 
-// Our Custom UI Components
-import RollingText from '../components/ui/RollingText'; // For the Hero
-import AnimatedNumber from '../components/ui/animated-number'; // For the Trust Bar
-import { CardStack } from '../components/ui/card-stack'; // For Core Services
 
 // Data for our Card Stack
 const CORE_SERVICES = [
