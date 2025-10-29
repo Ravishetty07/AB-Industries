@@ -318,7 +318,7 @@ export default function Home() {
               desc: "High-precision turning and milling with advanced CNC systems for complex parts.",
             },
             {
-              img: "/Vmc-machine-2.jpg",
+              img: "/vmc-machine-4.jpg",
               icon: Factory,
               title: "VMC Machining",
               desc: "Multi-axis machining centers capable of producing intricate geometries efficiently.",
