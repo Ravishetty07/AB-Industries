@@ -4,7 +4,6 @@ import Link from "next/link";
 import { motion } from "framer-motion";
 import { Cog } from "lucide-react";
 
-
 const Footer = () => {
   const currentYear = new Date().getFullYear();
 
@@ -25,8 +24,8 @@ const Footer = () => {
   ];
 
   return (
-    <footer className="relative bg-black   text-gray-300 overflow-hidden">
-      {/* Animated glow orb */}
+    <footer className="relative bg-[#0a0f1a] text-gray-300 overflow-hidden">
+      {/* Subtle animated blue orb */}
       <motion.div
         className="absolute top-0 left-1/3 w-[500px] h-[500px] bg-blue-500/10 rounded-full blur-3xl"
         animate={{ opacity: [0.4, 0.7, 0.4], scale: [1, 1.1, 1] }}
@@ -36,18 +35,17 @@ const Footer = () => {
       <div className="relative container mx-auto px-6 py-16 grid grid-cols-1 md:grid-cols-4 gap-12">
         {/* --- About Section --- */}
         <div>
-          {/* Logo */}
           <Link
             href="/"
             className="flex items-center space-x-2 font-semibold text-xl text-white mb-4"
           >
-            <Cog className="w-6 h-6" />
-            <span>AB Industries</span>
+            <Cog className="w-6 h-6 text-blue-400" />
+            <span>A.B. Industries</span>
           </Link>
           <p className="text-blue-100 text-sm leading-relaxed mb-6">
-            Trusted precision engineering partner delivering CNC, VMC, and Lathe
-            machining excellence — built on accuracy, technology, and
-            reliability.
+            Precision engineering company specializing in CNC, VMC, and Lathe
+            machining — delivering quality, reliability, and innovation for
+            every client requirement.
           </p>
           <div className="flex space-x-4">
             <a
@@ -60,12 +58,16 @@ const Footer = () => {
               </svg>
             </a>
             <a
-              href="https://twitter.com"
+              href="mailto:abindustries4851@gmail.com"
               className="text-blue-300 hover:text-white transition-colors"
-              aria-label="Twitter"
+              aria-label="Email"
             >
-              <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
-                <path d="M24 4.6a9.9 9.9 0 0 1-2.8.8 4.9 4.9 0 0 0 2.2-2.7 9.8 9.8 0 0 1-3.1 1.2A4.9 4.9 0 0 0 16.7 3c-2.7 0-4.9 2.3-4.9 5 0 .4 0 .8.1 1.1A14 14 0 0 1 1.7 3.1a5 5 0 0 0-.7 2.5c0 1.7.9 3.2 2.2 4.1a4.7 4.7 0 0 1-2.2-.6v.1a5 5 0 0 0 3.9 4.9 5 5 0 0 1-1.3.2c-.3 0-.6 0-.9-.1a5 5 0 0 0 4.7 3.5A9.9 9.9 0 0 1 0 20a14 14 0 0 0 7.6 2.2c9.1 0 14.1-7.6 14.1-14.2 0-.2 0-.4 0-.6A10 10 0 0 0 24 4.6z" />
+              <svg
+                className="w-6 h-6"
+                fill="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path d="M20 4H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z" />
               </svg>
             </a>
           </div>
@@ -79,7 +81,7 @@ const Footer = () => {
               <li key={link.name}>
                 <Link
                   href={link.href}
-                  className="hover:text-white transition-colors"
+                  className="hover:text-blue-400 transition-colors"
                 >
                   {link.name}
                 </Link>
@@ -98,7 +100,7 @@ const Footer = () => {
               <li key={s.name}>
                 <Link
                   href={s.href}
-                  className="hover:text-white transition-colors"
+                  className="hover:text-blue-400 transition-colors"
                 >
                   {s.name}
                 </Link>
@@ -115,26 +117,41 @@ const Footer = () => {
           <ul className="space-y-4 text-blue-100 text-sm">
             <li className="flex items-start gap-3">
               <span>📍</span>
-              <span>No. 45, Industrial Area, Peenya, Bangalore – 560058</span>
+              <span>
+                Sy.No. 70/11, Near Basaveshwara Temple, Cheemasandra,
+                <br /> Virgonagar Post, Bangalore – 560049
+              </span>
             </li>
-            <li className="flex items-center gap-3">
+            {/* <li className="flex items-start gap-3">
+              <span>👨‍🔧</span>
+              <span>Mr. Chand Pasha & Mr. Shafiulla</span>
+            </li> */}
+            <li className="flex items-start gap-3">
               <span>📞</span>
-              <span>+91 98765 43210</span>
+              <span>+91 99800 41620 / +91 98804 01262</span>
             </li>
-            <li className="flex items-center gap-3">
+            <li className="flex items-start gap-3">
+              <span>☎️</span>
+              <span>080-71290285</span>
+            </li>
+            <li className="flex items-start gap-3">
               <span>✉️</span>
-              <span>sales@abindustries.in</span>
+              <span>abindustries4851@gmail.com</span>
             </li>
+            {/* <li className="flex items-start gap-3">
+              <span>🧾</span>
+              <span>GST – 29AAVFA5740J1ZV</span>
+            </li> */}
           </ul>
         </div>
       </div>
 
-      {/* --- Footer Bottom Bar --- */}
-      <div className="border-t border-blue-700/40 text-center py-6 text-sm text-blue-200/80">
+      {/* --- Footer Bottom --- */}
+      <div className="border-t border-blue-900/40 text-center py-6 text-sm text-blue-200/80">
         <p>
           © {currentYear}{" "}
-          <span className="font-semibold text-white">AB Industries</span>. All
-          Rights Reserved. | Designed with ⚙️ Precision
+          <span className="font-semibold text-white">A.B. Industries</span>. All
+          Rights Reserved. | Built with ⚙️ Precision
         </p>
       </div>
     </footer>

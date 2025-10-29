@@ -291,59 +291,91 @@ export default function Home() {
       </section>
 
       {/* ================= CAPABILITIES SECTION ================= */}
-      <section id="capabilities" className="py-24 bg-slate-50">
+      <section
+        id="capabilities"
+        className="py-24 bg-gradient-to-b from-slate-50 to-white relative overflow-hidden"
+      >
         <div className="text-center mb-14 px-6">
-          <motion.h2 {...fadeIn} className="text-4xl font-bold mb-4">
-            Our Core Capabilities
+          <motion.h2
+            {...fadeIn}
+            className="text-4xl font-bold mb-4 text-slate-800"
+          >
+            Our <span className="text-blue-600">Core Capabilities</span>
           </motion.h2>
           <p className="text-slate-600 max-w-2xl mx-auto">
-            From prototyping to mass production, our CNC and VMC expertise
-            ensures every part meets the tightest tolerances.
+            From rapid prototyping to full-scale production — we combine
+            advanced machinery, skilled engineers, and precision processes to
+            deliver excellence in every part.
           </p>
         </div>
 
         <div className="container mx-auto px-6 grid sm:grid-cols-2 lg:grid-cols-3 gap-10">
           {[
             {
+              img: "/cnc-machine-1.jpg",
               icon: Cog,
               title: "CNC Machining",
-              desc: "High-precision CNC turning & milling for complex parts.",
+              desc: "High-precision turning and milling with advanced CNC systems for complex parts.",
             },
             {
-              icon: Wrench,
-              title: "Rapid Prototyping",
-              desc: "Quick, accurate prototypes to validate your ideas fast.",
-            },
-            {
+              img: "/Vmc-machine-2.jpg",
               icon: Factory,
-              title: "Assembly & Finishing",
-              desc: "Complete sub-assembly and finishing solutions in-house.",
+              title: "VMC Machining",
+              desc: "Multi-axis machining centers capable of producing intricate geometries efficiently.",
             },
             {
+              img: "/prototyping.jpg",
+              icon: Lightbulb,
+              title: "Rapid Prototyping",
+              desc: "Accelerate product development with quick-turn, high-accuracy prototypes.",
+            },
+            {
+              img: "/inspection-area.jpg",
               icon: ShieldCheck,
               title: "Quality Inspection",
-              desc: "CMM inspection with a zero-defect commitment.",
+              desc: "Comprehensive CMM and metrology systems ensure zero-defect precision.",
             },
             {
-              icon: Lightbulb,
-              title: "Design Assistance",
-              desc: "Collaborative engineering for manufacturability optimization.",
+              img: "/packing-dispatch.jpg",
+              icon: Wrench,
+              title: "Component Assembly",
+              desc: "Integrated assembly and finishing to deliver ready-to-install solutions.",
             },
             {
+              img: "/Tools-768x512.jpg",
               icon: Users,
-              title: "Client Support",
-              desc: "Technical guidance through your project lifecycle.",
+              title: "Client-Centric Support",
+              desc: "Engineering collaboration and technical guidance through every project stage.",
             },
           ].map((item, i) => (
             <motion.div
               key={i}
               {...fadeIn}
               transition={{ delay: 0.05 * i }}
-              className="bg-white rounded-xl p-8 shadow-md hover:shadow-2xl transition-all group"
+              className="group relative rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl border border-slate-200 bg-white hover:-translate-y-1 transition-all duration-500"
             >
-              <item.icon className="w-12 h-12 text-blue-600 mb-4 group-hover:scale-110 transition-transform" />
-              <h3 className="text-xl font-semibold mb-2">{item.title}</h3>
-              <p className="text-slate-600 text-sm">{item.desc}</p>
+              {/* Image */}
+              <div className="relative w-full h-48 overflow-hidden">
+                <Image
+                  src={item.img}
+                  alt={item.title}
+                  width={400}
+                  height={300}
+                  className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-blue-900/60 via-transparent opacity-70 group-hover:opacity-90 transition-all duration-500" />
+                <item.icon className="absolute bottom-4 left-4 w-10 h-10 text-blue-200 drop-shadow-md" />
+              </div>
+
+              {/* Content */}
+              <div className="p-6 text-left">
+                <h3 className="text-xl font-semibold text-slate-800 mb-2 group-hover:text-blue-600 transition-colors">
+                  {item.title}
+                </h3>
+                <p className="text-slate-600 text-sm leading-relaxed">
+                  {item.desc}
+                </p>
+              </div>
             </motion.div>
           ))}
         </div>
@@ -373,18 +405,27 @@ export default function Home() {
             whileInView={{ scaleX: 1 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6, ease: "easeOut" }}
-            className="mx-auto mb-8 w-24 h-[3px] bg-blue-600 origin-left"
+            className="mx-auto mb-6 w-24 h-[3px] bg-blue-600 origin-left"
           />
 
+          {/* Credibility Stats */}
           <motion.p
             initial={{ opacity: 0, y: 10 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.1 }}
             viewport={{ once: true }}
-            className="text-slate-600 max-w-2xl mx-auto leading-relaxed text-lg"
+            className="text-slate-600 max-w-2xl mx-auto leading-relaxed text-lg mb-4"
           >
             Empowering critical sectors with precision engineering and
             innovation — from aerospace to automation.
+          </motion.p>
+          <motion.p
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            transition={{ delay: 0.4, duration: 0.8 }}
+            className="text-blue-600 font-semibold tracking-wide"
+          >
+            50+ Clients • 6 Major Industries • Global Reach 🌍
           </motion.p>
         </div>
 
@@ -392,123 +433,33 @@ export default function Home() {
           {[
             {
               name: "Aerospace & Defence",
-              icon: (
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  className="w-8 h-8"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
-                  strokeWidth={1.5}
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    d="M21 12H3m9 9V3"
-                  />
-                </svg>
-              ),
-              img: "/Impeller.jpg",
+              img: "/Impeller.jpg", // metallic impeller part – ideal for aerospace/defence
+              desc: "High-performance impellers, precision housings, and critical aerospace components built to exacting standards.",
             },
             {
               name: "Automotive",
-              icon: (
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  className="w-8 h-8"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
-                  strokeWidth={1.5}
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    d="M3 13l2-2m0 0l7-7 7 7M13 5v6h6"
-                  />
-                </svg>
-              ),
-              img: "/Five-Axis-Machining-Service.jpg",
+              img: "/cnc-1.avif", // CNC turning – perfect automotive
+              desc: "Precision turned and milled automotive parts including shafts, housings, and brackets with micron-level accuracy.",
             },
             {
               name: "Medical Devices",
-              icon: (
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  className="w-8 h-8"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
-                  strokeWidth={1.5}
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    d="M12 6v12m6-6H6"
-                  />
-                </svg>
-              ),
-              img: "/Protective-Cap.jpg",
+              img: "/Protective-Cap.jpg", // clean part – matches medical aesthetic
+              desc: "Sterile, precision-machined components for diagnostic and surgical equipment.",
             },
             {
               name: "Electronics & Semiconductors",
-              icon: (
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  className="w-8 h-8"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
-                  strokeWidth={1.5}
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    d="M13 16h-1v-4h-1m2 4h2v-4h-2v4zm0-4h1V9h-1m1 0V7h-1v2h1z"
-                  />
-                </svg>
-              ),
-              img: "/cnc-machine-1.jpg",
+              img: "/cnc-5.jpg", // clean internal environment with machinery
+              desc: "Precision housings, connectors, and tooling components for electronics and semiconductor assemblies.",
             },
             {
               name: "Energy & Industrial Equipment",
-              icon: (
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  className="w-8 h-8"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
-                  strokeWidth={1.5}
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    d="M12 2v20m5-8h5l-10 8V2l10 8h-5z"
-                  />
-                </svg>
-              ),
-              img: "/Feed-Rod-Bearing.jpg",
+              img: "/Feed-Rod-Bearing.jpg", // bearing – mechanical, industrial
+              desc: "Heavy-duty machined components for power, energy, and hydraulic systems ensuring durability and efficiency.",
             },
             {
               name: "Robotics & Automation",
-              icon: (
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  className="w-8 h-8"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
-                  strokeWidth={1.5}
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    d="M9 12h6m-3-3v6m-7 9a9 9 0 1118 0H2z"
-                  />
-                </svg>
-              ),
-              img: "/CNC-Laser-cutting.jpg",
+              img: "/CNC-Laser-cutting.jpg", // laser cutting – fits robotics/automation
+              desc: "Precision parts and enclosures for automated systems, robotics, and motion control solutions.",
             },
           ].map((industry, i) => (
             <motion.div
@@ -529,15 +480,17 @@ export default function Home() {
                   className="object-cover w-full h-full transform group-hover:scale-110 transition-transform duration-700 ease-out"
                 />
                 {/* Gradient overlay */}
-                <div className="absolute inset-0 bg-gradient-to-t from-slate-900/80 via-slate-900/20 to-transparent opacity-90 group-hover:opacity-100 transition-opacity duration-500" />
+                <div className="absolute inset-0 bg-gradient-to-t from-slate-900/80 via-slate-900/20 to-transparent opacity-90 transition-all duration-500 group-hover:opacity-70" />
               </div>
 
               {/* Content Overlay */}
-              <div className="absolute bottom-6 left-0 right-0 text-center px-4 flex flex-col items-center">
-                <div className="mb-2 text-blue-400">{industry.icon}</div>
-                <h3 className="text-xl font-semibold text-white drop-shadow-md tracking-wide">
+              <div className="absolute inset-0 flex flex-col justify-end px-6 pb-6 text-left">
+                <h3 className="text-xl font-semibold text-white drop-shadow-md mb-1">
                   {industry.name}
                 </h3>
+                <p className="text-blue-100 text-sm opacity-0 group-hover:opacity-100 translate-y-3 group-hover:translate-y-0 transition-all duration-500 ease-out">
+                  {industry.desc}
+                </p>
               </div>
 
               {/* Glow Border Animation */}
@@ -552,6 +505,89 @@ export default function Home() {
 
         {/* Decorative Fade at Bottom */}
         <div className="pointer-events-none absolute inset-x-0 bottom-0 h-32 bg-gradient-to-t from-white via-white/70 to-transparent" />
+      </section>
+
+      {/* ================= OUR CLIENTS ================= */}
+      <section className="relative py-24 bg-gradient-to-br from-white via-slate-50 to-blue-50 overflow-hidden">
+        {/* Soft Ambient Glows */}
+        <div className="absolute top-[10%] left-[5%] w-[320px] h-[320px] bg-blue-300/20 rounded-full blur-3xl" />
+        <div className="absolute bottom-[5%] right-[8%] w-[260px] h-[260px] bg-blue-100/30 rounded-full blur-3xl" />
+
+        <div className="container mx-auto px-6 text-center relative z-10">
+          {/* Section Heading */}
+          <motion.h2
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, ease: "easeOut" }}
+            viewport={{ once: true }}
+            className="text-4xl md:text-5xl font-extrabold mb-6 text-slate-900"
+          >
+            Our <span className="text-blue-600">Clients</span>
+          </motion.h2>
+
+          {/* Accent Divider */}
+          <motion.div
+            initial={{ scaleX: 0 }}
+            whileInView={{ scaleX: 1 }}
+            transition={{ duration: 0.6, ease: "easeOut" }}
+            viewport={{ once: true }}
+            className="mx-auto mb-10 w-28 h-[3px] bg-blue-600 origin-left rounded-full"
+          />
+
+          {/* Description */}
+          <motion.p
+            initial={{ opacity: 0, y: 15 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, ease: "easeOut" }}
+            viewport={{ once: true }}
+            className="text-slate-600 max-w-2xl mx-auto mb-16 leading-relaxed text-lg"
+          >
+            We’re proud to collaborate with industry leaders across{" "}
+            <span className="font-semibold text-slate-800">aerospace</span>,{" "}
+            <span className="font-semibold text-slate-800">automation</span>,
+            and{" "}
+            <span className="font-semibold text-slate-800">
+              advanced manufacturing
+            </span>{" "}
+            — delivering engineering precision and lasting partnerships.
+          </motion.p>
+
+          {/* Client Logos */}
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-10 items-center justify-center">
+            {[
+              { name: "IGUS INDIA PVT LTD", img: "/igus-logo.png" },
+              {
+                name: "FUEGO HEALTH AND FURNITURE LLP",
+                img: "/fuego-logo.png",
+              },
+              { name: "INDO-MIM LIMITED", img: "/indo-mim-logo.png" },
+              {
+                name: "GOPALAN AEROSPACE INDIA PVT LTD",
+                img: "/gopalan-logo.png",
+              },
+            ].map((client, i) => (
+              <motion.div
+                key={i}
+                initial={{ opacity: 0, y: 25 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: i * 0.1, ease: "easeOut" }}
+                viewport={{ once: true }}
+                className="group bg-white/80 backdrop-blur-sm rounded-2xl shadow-md hover:shadow-lg hover:-translate-y-2 transition-all duration-500 p-8 border border-slate-200 flex flex-col items-center justify-center"
+              >
+                <Image
+                  src={client.img}
+                  alt={`${client.name} logo`}
+                  width={140}
+                  height={70}
+                  // className="object-contain mb-5 grayscale group-hover:grayscale-0 group-hover:scale-105 transition-all duration-300"
+                />
+                <p className="text-sm text-slate-700 font-semibold mt-5 tracking-wide">
+                  {client.name}
+                </p>
+              </motion.div>
+            ))}
+          </div>
+        </div>
       </section>
 
       {/* ================= TRUST METRICS ================= */}

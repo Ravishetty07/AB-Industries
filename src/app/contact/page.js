@@ -4,6 +4,8 @@ import { motion } from "framer-motion";
 import { LocationIcon, PhoneIcon, EmailIcon } from "../../components/Icons";
 import Image from "next/image";
 
+
+
 export default function ContactPage() {
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -132,8 +134,13 @@ export default function ContactPage() {
             transition={{ delay: 0.8, duration: 0.6 }}
             className="mt-10"
           >
-            <a
-              href="/contact"
+            <button
+              onClick={() => {
+                const formSection = document.getElementById("contact-form");
+                if (formSection) {
+                  formSection.scrollIntoView({ behavior: "smooth" });
+                }
+              }}
               className="inline-flex items-center gap-3 bg-blue-700 text-white px-8 py-4 rounded-lg font-semibold shadow-lg hover:bg-blue-800 hover:shadow-xl transition-all"
             >
               Start a Conversation
@@ -151,7 +158,7 @@ export default function ContactPage() {
                   d="M17 8l4 4m0 0l-4 4m4-4H3"
                 />
               </svg>
-            </a>
+            </button>
           </motion.div>
         </motion.div>
 
@@ -160,7 +167,11 @@ export default function ContactPage() {
       </section>
 
       {/* ================= CONTACT FORM & INFO ================= */}
-      <section className="relative py-28 bg-gradient-to-b from-white to-slate-50">
+
+      <section
+        id="contact-form"
+        className="relative py-28 bg-gradient-to-b from-white to-slate-50"
+      >
         <div className="container mx-auto px-6 grid md:grid-cols-2 gap-16 items-start">
           {/* === Contact Info === */}
           <motion.div {...fadeIn}>
@@ -168,8 +179,8 @@ export default function ContactPage() {
               Reach <span className="text-blue-600">Us</span>
             </h2>
             <p className="text-slate-600 mb-8 leading-relaxed text-lg">
-              Our dedicated team is ready to assist with your manufacturing and
-              quote inquiries during business hours.
+              We’d love to hear from you. Our team is ready to assist with your
+              manufacturing, quotation, and business partnership inquiries.
             </p>
 
             <ul className="space-y-8">
@@ -182,8 +193,9 @@ export default function ContactPage() {
                     Office Address
                   </h3>
                   <p className="text-slate-600">
-                    No. 123, ABC Industrial Estate, <br /> Peenya, Bangalore -
-                    560058, India
+                    Sy. No. 70/11, Near Basaveshwara Temple, <br />
+                    Cheemasandra, Virgonagar Post, <br />
+                    Bangalore – 560049, Karnataka, India
                   </p>
                 </div>
               </li>
@@ -194,9 +206,15 @@ export default function ContactPage() {
                 </div>
                 <div>
                   <h3 className="font-semibold text-lg text-slate-800">
-                    Phone
+                    Contact Persons
                   </h3>
-                  <p className="text-slate-600">+91 12345 67890</p>
+                  <p className="text-slate-600 font-medium">
+                    Mr. Chand Pasha & Mr. Shafiulla
+                  </p>
+                  <p className="text-slate-600">
+                    📞 +91 99800 41620, +91 98804 01262 <br />
+                    ☎️ 080-7129 0285
+                  </p>
                 </div>
               </li>
 
@@ -208,22 +226,33 @@ export default function ContactPage() {
                   <h3 className="font-semibold text-lg text-slate-800">
                     Email
                   </h3>
-                  <p className="text-slate-600">sales@abindustries.in</p>
+                  <p className="text-slate-600">abindustries4851@gmail.com</p>
                 </div>
               </li>
+
+              {/* Optional GST */}
+              {/* <li className="flex items-start gap-4">
+          <div className="p-4 bg-blue-50 rounded-2xl shadow-sm">
+            <FileText className="w-6 h-6 text-blue-600" />
+          </div>
+          <div>
+            <h3 className="font-semibold text-lg text-slate-800">GST No.</h3>
+            <p className="text-slate-600">29AAVFA5740J1ZV</p>
+          </div>
+        </li> */}
             </ul>
 
-            {/* Map */}
+            {/* Embedded Google Map */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.1 }}
               viewport={{ once: true }}
-              className="mt-12 h-64 w-full rounded-2xl overflow-hidden shadow-xl border border-slate-200"
+              className="mt-12 h-72 w-full rounded-2xl overflow-hidden shadow-xl border border-slate-200"
             >
               <iframe
                 title="AB Industries Location"
-                src="https://maps.google.com/maps?q=Bangalore%20Peenya&t=&z=13&ie=UTF8&iwloc=&output=embed"
+                src="https://www.google.com/maps?q=Sy+No+70%2F11,+Cheemasandra,+Virgonagar,+Bangalore+560049&output=embed"
                 className="w-full h-full border-0"
                 allowFullScreen
               ></iframe>
@@ -240,7 +269,6 @@ export default function ContactPage() {
               onSubmit={handleSubmit}
               className="space-y-6 bg-white border border-slate-200 rounded-3xl shadow-xl p-8 transition-all hover:shadow-2xl"
             >
-              {/* Input Fields */}
               {[
                 { type: "text", placeholder: "Full Name", required: true },
                 { type: "email", placeholder: "Email Address", required: true },
@@ -261,10 +289,29 @@ export default function ContactPage() {
                     stroke="currentColor"
                   >
                     {i === 0 && (
-                      <path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 0v8m-6 0h12" />
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth={1.5}
+                        d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 0v8m-6 0h12"
+                      />
                     )}
-                    {i === 1 && <path d="M16 12H8m8 0l-4 4m4-4l-4-4" />}
-                    {i === 2 && <path d="M3 5h2l2 7-2 7H3zM6 12h14" />}
+                    {i === 1 && (
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth={1.5}
+                        d="M16 12H8m8 0l-4 4m4-4l-4-4"
+                      />
+                    )}
+                    {i === 2 && (
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth={1.5}
+                        d="M3 5h2l2 7-2 7H3zM6 12h14"
+                      />
+                    )}
                   </svg>
                 </div>
               ))}
@@ -303,7 +350,10 @@ export default function ContactPage() {
         />
 
         <div className="container mx-auto px-6 text-center relative z-10">
-          <motion.h2 {...fadeIn} className="text-4xl font-bold mb-14">
+          <motion.h2
+            {...fadeIn}
+            className="text-4xl font-bold mb-14 text-slate-800"
+          >
             Other Ways to <span className="text-blue-600">Connect</span>
           </motion.h2>
 
@@ -327,7 +377,7 @@ export default function ContactPage() {
                   </svg>
                 ),
                 title: "WhatsApp Support",
-                desc: "+91 98765 43210 💬",
+                desc: "+91 99800 41620, +91 98804 01262 💬",
               },
               {
                 icon: (
@@ -346,8 +396,8 @@ export default function ContactPage() {
                     />
                   </svg>
                 ),
-                title: "Technical Support",
-                desc: "support@abindustries.in",
+                title: "General Enquiries",
+                desc: "abindustries4851@gmail.com",
               },
               {
                 icon: (
@@ -366,8 +416,8 @@ export default function ContactPage() {
                     />
                   </svg>
                 ),
-                title: "Sales Inquiries",
-                desc: "sales@abindustries.in",
+                title: "Sales & Quotes",
+                desc: "📩 abindustries4851@gmail.com",
               },
               {
                 icon: (
@@ -386,8 +436,8 @@ export default function ContactPage() {
                     />
                   </svg>
                 ),
-                title: "Career Opportunities",
-                desc: "hr@abindustries.in",
+                title: "Careers & Opportunities",
+                desc: "📧 hr@abindustries.in",
               },
             ].map((item, i) => (
               <motion.div
@@ -412,40 +462,63 @@ export default function ContactPage() {
       </section>
 
       {/* ================= FAQ SECTION ================= */}
-      <section className="py-24 bg-white">
-        <div className="container mx-auto px-6">
+      <section className="py-28 bg-gradient-to-b from-slate-50 via-white to-slate-100 relative overflow-hidden">
+        {/* Decorative background orbs */}
+        <motion.div
+          className="absolute -top-24 left-1/2 -translate-x-1/2 w-[600px] h-[600px] bg-blue-200/20 rounded-full blur-3xl"
+          animate={{ scale: [1, 1.1, 1], opacity: [0.3, 0.5, 0.3] }}
+          transition={{ duration: 10, repeat: Infinity }}
+        />
+
+        <div className="container mx-auto px-6 relative z-10">
+          {/* Section Header */}
           <motion.h2
             {...fadeIn}
-            className="text-4xl font-bold mb-12 text-center"
+            className="text-4xl md:text-5xl font-bold mb-12 text-center text-slate-800"
           >
             Frequently Asked <span className="text-blue-600">Questions</span>
           </motion.h2>
 
+          <p className="text-slate-600 text-center max-w-2xl mx-auto mb-12 text-lg">
+            Find quick answers about our machining capabilities, materials, and
+            order process. Have more questions? Reach out — we’re always happy
+            to assist.
+          </p>
+
+          {/* FAQ List */}
           <div className="max-w-3xl mx-auto space-y-6">
             {[
               {
                 q: "What information should I include for a quote?",
-                a: "Please include part drawings (STEP/PDF), material, tolerances, and quantity. This helps us provide a fast and accurate quote.",
+                a: "Please share detailed part drawings (STEP/PDF), material type, tolerances, finishing requirements, and expected quantities. This ensures we can provide an accurate and fast quotation.",
               },
               {
                 q: "Do you support international shipping?",
-                a: "Yes, we supply precision components across India, Europe, and North America with full export documentation.",
+                a: "Yes, we regularly export precision components to clients across India, Europe, and North America with full customs and compliance documentation.",
               },
               {
                 q: "Can I visit your manufacturing facility?",
-                a: "Absolutely! We welcome clients to tour our facility. Just schedule an appointment via the contact form or email.",
+                a: "Absolutely! We encourage clients to visit our facility in Cheemasandra, Bangalore. Please contact us to schedule an appointment in advance.",
               },
               {
                 q: "What materials can you work with?",
-                a: "We specialize in aluminum, stainless steel, titanium, brass, and various engineering plastics.",
+                a: "We specialize in machining aluminum, stainless steel, brass, titanium, and a wide range of engineering plastics and composites.",
+              },
+              {
+                q: "How do you ensure quality and precision?",
+                a: "Every component undergoes CMM inspection, surface testing, and digital traceability checks to ensure ISO-standard quality.",
               },
             ].map((faq, i) => (
-              <AccordionItem
+              <motion.div
                 key={i}
-                question={faq.q}
-                answer={faq.a}
-                index={i}
-              />
+                initial={{ opacity: 0, y: 10 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.4, delay: i * 0.1 }}
+                viewport={{ once: true }}
+                className="bg-white border border-slate-200 rounded-2xl shadow-sm hover:shadow-md transition-all"
+              >
+                <AccordionItem index={i} question={faq.q} answer={faq.a} />
+              </motion.div>
             ))}
           </div>
         </div>
