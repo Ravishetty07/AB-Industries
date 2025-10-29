@@ -12,7 +12,7 @@ export default function VmcMachiningPage() {
         {/* Background Image */}
         <div className="absolute inset-0">
           <Image
-            src="/vmc-machine-1.jpg"
+            src="/cncoper-2.jpg"
             alt="VMC Machining Facility"
             fill
             className="object-cover object-center opacity-70"
@@ -179,13 +179,12 @@ export default function VmcMachiningPage() {
 
           <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-8">
             {[
-              { img: "/Vmc-machine-1.jpg", caption: "High-Speed Machining" },
+              { img: "/vmc-machine-1.jpg", caption: "High-Speed Machining" },
               {
-                img: "/Vmc-machine-2.jpg",
-                caption: "Precision Milling Center",
+                img: "/vmc-machine-2.jpg", caption: "Precision Milling Center",
               },
-              { img: "/Vmc-machine-3.jpg", caption: "Multi-Axis Setup" },
-              { img: "/Vmc-machine-4.jpg", caption: "Component Finishing" },
+              { img: "/vmc-machine-3.jpg", caption: "Multi-Axis Setup" },
+              { img: "/vmc-machine-4.jpg", caption: "Component Finishing" },
             ].map((machine, i) => (
               <motion.div
                 key={i}

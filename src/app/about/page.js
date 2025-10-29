@@ -1101,12 +1101,12 @@ export default function AboutPage() {
               {
                 title: "CNC Machining Section",
                 desc: "High-speed CNC turning centers ensure precision machining for critical components.",
-                img: "/cnc-turring-centre-02.jpg",
+                img: "/cnc-5.jpg",
               },
               {
                 title: "VMC Machining Area",
                 desc: "Vertical machining centers for multi-axis operations and complex geometries.",
-                img: "/vmc-machine-1.jpg",
+                img: "/vmc-machine-4.jpg",
               },
               {
                 title: "Inspection & Quality Control",

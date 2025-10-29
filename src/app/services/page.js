@@ -219,7 +219,7 @@ export default function ServicesPage() {
                 desc: "Capacity: 500x500x800 mm • Make: JOTHI",
               },
               {
-                src: "/vmc-machine-1.jpg",
+                src: "/vmc-machine-4.jpg",
                 title: "VMC Machine - 02",
                 desc: "Capacity: 1060x650x650 mm • Make: COSMOS",
               },
