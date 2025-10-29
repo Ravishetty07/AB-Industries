@@ -179,7 +179,7 @@ export default function VmcMachiningPage() {
 
           <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-8">
             {[
-              { img: "/vmc-machine-1.jpg", caption: "High-Speed Machining" },
+              { img: "/vnc-2.jpg", caption: "High-Speed Machining" },
               {
                 img: "/vmc-machine-2.jpg", caption: "Precision Milling Center",
               },
