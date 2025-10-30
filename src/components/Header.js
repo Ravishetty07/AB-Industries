@@ -63,7 +63,7 @@ const Header = () => {
         {/* Logo Section */}
         <Link href="/" className="flex items-center space-x-2">
           <Image
-            src="/logo.jpg" // make sure this file is inside /public folder
+            src="/logo2.png" // make sure this file is inside /public folder
             alt="AB Industries Logo"
             width={40}
             height={40}
