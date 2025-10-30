@@ -4,6 +4,7 @@ import React, { useState, useEffect } from "react";
 import { usePathname } from "next/navigation";
 import { Menu, X, Cog, ChevronDown } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
+import Image from "next/image";
 
 const Header = () => {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -59,13 +60,16 @@ const Header = () => {
       }`}
     >
       <nav className="container mx-auto px-6 py-3 flex justify-between items-center">
-        {/* Logo */}
-        <Link
-          href="/"
-          className="flex items-center space-x-2 font-semibold text-xl text-blue-700"
-        >
-          <Cog className="w-6 h-6" />
-          <span>AB Industries</span>
+        {/* Logo Section */}
+        <Link href="/" className="flex items-center space-x-2">
+          <Image
+            src="/AB-logo.png" // make sure this file is inside /public folder
+            alt="AB Industries Logo"
+            width={40}
+            height={40}
+            className="object-contain"
+            priority
+          />
         </Link>
 
         {/* Desktop Navigation */}
@@ -169,9 +173,7 @@ const Header = () => {
                   return (
                     <div key={link.name} className="border-t border-gray-100">
                       <button
-                        onClick={() =>
-                          setServiceDropdown((prev) => !prev)
-                        }
+                        onClick={() => setServiceDropdown((prev) => !prev)}
                         className={`w-full text-left px-6 py-3 font-medium flex justify-between items-center ${
                           isActive
                             ? "text-blue-700"

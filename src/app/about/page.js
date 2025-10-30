@@ -505,7 +505,7 @@ export default function AboutPage() {
           </p>
 
           {/* Accent line under heading */}
-          <div className="mt-8 h-[2px] w-24 mx-auto bg-gradient-to-r from-blue-500 to-orange-400 rounded-full" />
+          <div className="mt-8 h-[2px] w-24 mx-auto bg-blue-600 rounded-full" />
         </section>
 
         {/* ======== VIDEO SECTION ======== */}
