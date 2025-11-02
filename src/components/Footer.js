@@ -3,6 +3,8 @@ import React from "react";
 import Link from "next/link";
 import { motion } from "framer-motion";
 import { Cog } from "lucide-react";
+import Image from "next/image";
+
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
@@ -35,14 +37,19 @@ const Footer = () => {
       <div className="relative container mx-auto px-6 py-16 grid grid-cols-1 md:grid-cols-4 gap-12">
         {/* --- About Section --- */}
         <div>
-          <Link
-            href="/"
-            className="flex items-center space-x-2 font-semibold text-xl text-white mb-4"
-          >
-            <Cog className="w-6 h-6 text-blue-400" />
-            <span>A.B. Industries</span>
-          </Link>
-          <p className="text-blue-100 text-sm leading-relaxed mb-6">
+        {/* Logo Section */}
+        <Link href="/" className="flex items-center space-x-1 mb-4">
+          <Image
+            src="/logo.jpg" // make sure this file is inside /public folder
+            alt="AB Industries Logo"
+            width={40}
+            height={40}
+            className="object-contain"
+            priority
+          />
+          <span className="text-xl font-bold text-blue-400">Industries</span>
+        </Link>
+          <p className="text-gray-100 text-sm leading-relaxed mb-6">
             Precision engineering company specializing in CNC, VMC, and Lathe
             machining — delivering quality, reliability, and innovation for
             every client requirement.

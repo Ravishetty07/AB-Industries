@@ -7,6 +7,8 @@ import { QualityIcon } from "../../components/Icons";
 import { ArrowRight, Users, Globe } from "lucide-react";
 import { Cog } from "lucide-react";
 import { Skiper67 } from "@/components/ui/skiper-ui/skiper67";
+import TestimonialSection from "@/components/ui/TestimonialSection";
+
 
 export default function AboutPage() {
   const { scrollYProgress } = useScroll();
@@ -40,126 +42,109 @@ export default function AboutPage() {
   return (
     <main className="bg-white text-slate-900 overflow-hidden">
       {/* ================= HERO SECTION ================= */}
-      <section className="relative h-[90vh] flex flex-col justify-center items-center bg-white text-slate-900 overflow-hidden select-none">
-        {/* Rotating Gear Left (Large) */}
-        <motion.svg
-          xmlns="http://www.w3.org/2000/svg"
-          viewBox="0 0 64 64"
-          className="absolute top-16 left-16 w-32 h-32 text-slate-400/15"
-          stroke="currentColor"
-          strokeWidth="1.5"
-          fill="none"
-          animate={{ rotate: 360 }}
-          transition={{ duration: 80, repeat: Infinity, ease: "linear" }}
-        >
-          <path d="M32 44a12 12 0 1 0 0-24 12 12 0 0 0 0 24Z" />
-          <path d="M32 4v8M32 52v8M4 32h8M52 32h8M12.7 12.7l5.6 5.6M45.7 45.7l5.6 5.6M12.7 51.3l5.6-5.6M45.7 18.3l5.6-5.6" />
-        </motion.svg>
 
-        {/* Gear Right (Smaller Inner Gear) */}
-        <motion.svg
-          xmlns="http://www.w3.org/2000/svg"
-          viewBox="0 0 64 64"
-          className="absolute bottom-20 right-16 w-24 h-24 text-blue-500/20"
-          stroke="currentColor"
-          strokeWidth="1.5"
-          fill="none"
-          animate={{ rotate: -360 }}
-          transition={{ duration: 100, repeat: Infinity, ease: "linear" }}
-        >
-          <circle cx="32" cy="32" r="10" />
-          <path d="M32 2v6M32 56v6M2 32h6M56 32h6M10.4 10.4l4.2 4.2M49.4 49.4l4.2 4.2M10.4 53.6l4.2-4.2M49.4 14.6l4.2-4.2" />
-        </motion.svg>
+      {/* ================= HERO SECTION (Refined Industrial UI + Scroll Indicator) ================= */}
+      <section className="relative min-h-screen flex items-center bg-gradient-to-br from-blue-50 via-white to-slate-100 overflow-hidden">
+        {/* ====== BACKGROUND LIGHTS ====== */}
+        <div className="absolute top-16 left-10 w-[420px] h-[420px] bg-blue-400/20 rounded-full blur-3xl" />
+        <div className="absolute bottom-10 right-20 w-[350px] h-[350px] bg-blue-300/20 rounded-full blur-3xl" />
 
-        {/* Floating Wireframe Ring (adds depth) */}
-        <motion.div
-          className="absolute bottom-10 left-1/2 -translate-x-1/2 w-48 h-48 border border-blue-400/20 rounded-full"
-          animate={{ rotate: 360 }}
-          transition={{ duration: 50, repeat: Infinity, ease: "linear" }}
-        />
-
-        {/* Subtle CNC motion dots (ambient tech effect) */}
-        <motion.div
-          className="absolute top-1/3 right-1/4 w-40 h-40 bg-blue-400/10 rounded-full blur-2xl"
-          animate={{ y: [0, 30, 0], opacity: [0.6, 0.9, 0.6] }}
-          transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
-        />
-        <motion.div
-          className="absolute bottom-1/4 left-1/3 w-48 h-48 bg-slate-400/10 rounded-full blur-3xl"
-          animate={{ y: [0, -30, 0], opacity: [0.5, 0.8, 0.5] }}
-          transition={{ duration: 10, repeat: Infinity, ease: "easeInOut" }}
-        />
-
-        {/* Main Content */}
-        <motion.div
-          initial={{ opacity: 0, y: 40 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1 }}
-          className="relative z-10 text-center px-6"
-        >
-          <motion.p
-            initial={{ opacity: 0, y: 10 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.2 }}
-            className="uppercase tracking-[4px] text-blue-600 text-sm mb-4"
-          >
-            Precision Meets Innovation
-          </motion.p>
-
-          <motion.h1
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.4 }}
-            className="text-5xl md:text-6xl font-extrabold mb-6 tracking-tight"
-          >
-            Building{" "}
-            <span className="text-blue-700">Tomorrow’s Components</span> Today
-          </motion.h1>
-
-          <motion.p
-            initial={{ opacity: 0, y: 10 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.6 }}
-            className="text-lg md:text-xl text-slate-600 max-w-2xl mx-auto mb-8"
-          >
-            From CNC machining to precision manufacturing — shaping the future
-            of engineering with excellence.
-          </motion.p>
-
-          <motion.div
-            whileHover={{ scale: 1.05 }}
-            transition={{ type: "spring", stiffness: 300 }}
-          >
-            <Link
-              href="/contact"
-              className="inline-flex items-center gap-3 bg-blue-700 hover:bg-blue-800 px-8 py-4 rounded-lg text-lg font-semibold text-white shadow-lg transition-colors"
+        {/* ====== MAIN GRID ====== */}
+        <div className="relative z-10 container mx-auto px-6 lg:px-12 py-20 grid md:grid-cols-2 gap-16 items-center">
+          {/* ---------- LEFT CONTENT ---------- */}
+          <div className="flex flex-col items-start text-left space-y-6">
+            <motion.h1
+              initial={{ opacity: 0, y: 40 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.7 }}
+              className="text-5xl md:text-6xl font-extrabold leading-tight text-slate-900"
             >
-              Start Your Project
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                fill="none"
-                viewBox="0 0 24 24"
-                strokeWidth={2}
-                stroke="currentColor"
-                className="w-5 h-5"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  d="M17.25 8.25L21 12m0 0l-3.75 3.75M21 12H3"
-                />
-              </svg>
-            </Link>
-          </motion.div>
-        </motion.div>
+              Welcome to{" "}
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-700 to-blue-500">
+                A.B. Industries
+              </span>
+            </motion.h1>
 
-        {/* Scroll Indicator */}
+            <motion.p
+              initial={{ opacity: 0, y: 40 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.1 }}
+              className="text-lg md:text-xl text-slate-600 leading-relaxed max-w-xl"
+            >
+              Precision machining, CNC manufacturing, and world-class
+              engineering services — delivering accuracy, reliability, and
+              innovation to power the future of manufacturing.
+            </motion.p>
+
+            <motion.div
+              initial={{ opacity: 0, y: 40 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.9, delay: 0.2 }}
+            >
+              <Link
+                href="/contact"
+                className="inline-flex items-center gap-2 bg-gradient-to-r from-blue-700 to-blue-600 text-white px-10 py-4 rounded-xl font-semibold shadow-lg shadow-blue-300/30 hover:shadow-blue-400/40 hover:scale-105 transition-all duration-300"
+              >
+                Contact Us
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  className="w-5 h-5"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M17 8l4 4m0 0l-4 4m4-4H3"
+                  />
+                </svg>
+              </Link>
+            </motion.div>
+          </div>
+
+          {/* ---------- RIGHT IMAGE (STYLISH BORDER) ---------- */}
+          <motion.div
+            initial={{ opacity: 0, scale: 0.95 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.8 }}
+            className="relative group"
+          >
+            {/* Outer glowing gradient border */}
+            <div className="absolute -inset-1 rounded-[2rem] bg-gradient-to-tr from-blue-600 via-blue-400 to-blue-300 opacity-60 group-hover:opacity-100 transition-opacity duration-500 blur-sm" />
+
+            {/* Image itself */}
+            <div className="relative rounded-[2rem] overflow-hidden shadow-2xl border border-slate-200">
+              <Image
+                src="/infra-3.jpg"
+                alt="A.B. Industries Facility"
+                width={700}
+                height={500}
+                className="object-cover w-full h-[450px] rounded-[2rem] transition-transform duration-700 group-hover:scale-105"
+                priority
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-black/10 to-transparent rounded-[2rem]" />
+
+              {/* Caption */}
+              <div className="absolute bottom-4 left-4 bg-white/90 backdrop-blur-md text-slate-900 px-5 py-2 rounded-lg text-sm font-medium shadow-md">
+                ⚙️ Precision Manufacturing Facility
+              </div>
+            </div>
+          </motion.div>
+        </div>
+
+        {/* ====== SCROLL INDICATOR ====== */}
         <motion.div
-          className="absolute bottom-8 flex flex-col items-center text-slate-400"
-          animate={{ y: [0, 8, 0] }}
-          transition={{ duration: 1.5, repeat: Infinity, ease: "easeInOut" }}
+          className="absolute bottom-8 left-1/2 transform -translate-x-1/2 text-gray-500 flex flex-col items-center"
+          animate={{ y: [0, 10, 0] }}
+          transition={{
+            duration: 1.5,
+            repeat: Infinity,
+            ease: "easeInOut",
+          }}
         >
-          <div className="w-0.5 h-8 bg-slate-400 mb-2 rounded-full" />
+          <div className="w-0.5 h-8 bg-gray-400/40 mb-2 rounded-full" />
           <p className="text-xs uppercase tracking-widest">Scroll</p>
         </motion.div>
       </section>
@@ -180,7 +165,7 @@ export default function AboutPage() {
             className="relative rounded-2xl overflow-hidden shadow-2xl group"
           >
             <Image
-              src="/infra-3.jpg"
+              src="/infra-inside-1.jpg"
               alt="A.B. Industries Facility"
               width={700}
               height={450}
@@ -489,32 +474,34 @@ export default function AboutPage() {
           </motion.div>
         </div>
       </section>
-      
+
       {/* ================= VIDEO SHOWCASE ================= */}
       <main className="relative bg-gradient-to-b from-white via-slate-50 to-slate-100 text-slate-800 overflow-hidden">
         {/* ======== ABOUT HEADER ======== */}
-        <section className="relative py-24 text-center">
+        <section className="relative pb-0 pt-16 text-center">
           <div className="absolute inset-0 -z-10 bg-gradient-to-b from-blue-50/40 via-transparent to-transparent" />
-          <h1 className="text-4xl md:text-5xl font-extrabold mb-6 tracking-tight">
-            About <span className="text-blue-600">AB Industries</span>
+
+          <h1 className="text-4xl md:text-5xl font-extrabold mb-4 tracking-tight">
+            About <span className="text-blue-600">A.B. Industries</span>
           </h1>
+
           <p className="text-base md:text-lg text-slate-600 max-w-2xl mx-auto leading-relaxed">
             Discover the people, precision, and technology driving our legacy of
             quality manufacturing. We believe in craftsmanship powered by
             innovation.
           </p>
 
-          {/* Accent line under heading */}
-          <div className="mt-8 h-[2px] w-24 mx-auto bg-blue-600 rounded-full" />
+          {/* Accent Line */}
+          <div className="mt-6 h-[2px] w-20 mx-auto bg-blue-600 rounded-full" />
         </section>
 
         {/* ======== VIDEO SECTION ======== */}
-        <section className="relative flex flex-col items-center justify-center py-20">
-          <div className="absolute -top-20 -left-20 w-[300px] h-[300px] bg-blue-600/10 blur-[120px] rounded-full" />
-          <div className="absolute bottom-0 right-0 w-[250px] h-[250px] bg-orange-500/10 blur-[100px] rounded-full" />
+        <section className="relative flex flex-col items-center justify-center pt-10 pb-16">
+          <div className="absolute -top-10 -left-10 w-[250px] h-[250px] bg-blue-600/10 blur-[100px] rounded-full" />
+          <div className="absolute bottom-0 right-0 w-[200px] h-[200px] bg-orange-500/10 blur-[100px] rounded-full" />
 
-          <div className="text-center mb-10">
-            <h2 className="text-2xl font-semibold text-slate-700 mb-3">
+          <div className="text-center mb-8">
+            <h2 className="text-2xl font-semibold text-slate-700 mb-2">
               Inside Our Workshop
             </h2>
             <p className="text-slate-500 max-w-xl mx-auto text-sm md:text-base">
@@ -811,7 +798,7 @@ export default function AboutPage() {
           >
             <div className="relative w-full h-[500px] rounded-2xl overflow-hidden shadow-2xl">
               <Image
-                src="/about-story.jpg"
+                src="/mission.jpg"
                 alt="AB Industries Mission and Vision"
                 fill
                 className="object-cover object-center transition-transform duration-700 group-hover:scale-105"
@@ -972,92 +959,6 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* ================= GLOBAL PRESENCE ================= */}
-      {/* ================= GLOBAL PRESENCE ================= */}
-      <section className="relative py-28 overflow-hidden bg-gradient-to-b from-white via-slate-50 to-slate-100 text-center">
-        {/* Background world map */}
-        <div className="absolute inset-0">
-          <Image
-            src="/bg-map-2.png"
-            alt="World Map Background"
-            fill
-            className="object-cover opacity-10"
-          />
-          {/* Soft blue gradient overlay for depth */}
-          <div className="absolute inset-0 bg-gradient-to-b from-blue-50/40 via-transparent to-white" />
-        </div>
-
-        {/* Animated glowing dots (global presence markers) */}
-        <div className="absolute inset-0 z-0 pointer-events-none">
-          <span className="absolute top-[30%] left-[40%] w-3 h-3 bg-blue-600 rounded-full opacity-70 animate-ping" />
-          <span className="absolute top-[45%] left-[70%] w-3 h-3 bg-blue-500 rounded-full opacity-60 animate-ping" />
-          <span className="absolute bottom-[30%] left-[20%] w-3 h-3 bg-blue-400 rounded-full opacity-60 animate-ping" />
-          <span className="absolute top-[55%] right-[25%] w-3 h-3 bg-blue-500 rounded-full opacity-70 animate-ping" />
-        </div>
-
-        {/* Content */}
-        <motion.div
-          {...fadeIn}
-          className="relative z-10 container mx-auto px-6 flex flex-col items-center"
-        >
-          <Globe className="w-16 h-16 text-blue-600 mb-6" />
-
-          <h2 className="text-4xl md:text-5xl font-bold text-slate-900 mb-4">
-            Global <span className="text-blue-600">Presence</span>
-          </h2>
-
-          {/* Accent divider */}
-          <motion.div
-            initial={{ scaleX: 0 }}
-            whileInView={{ scaleX: 1 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6, ease: "easeOut" }}
-            className="mx-auto mb-8 w-20 h-[3px] bg-blue-600 origin-left"
-          />
-
-          <p className="text-slate-600 max-w-2xl mx-auto mb-10 leading-relaxed text-lg">
-            Delivering precision-engineered components to clients across
-            <span className="text-blue-600 font-semibold"> India</span>,
-            <span className="text-blue-600 font-semibold"> Europe</span>, and
-            <span className="text-blue-600 font-semibold">
-              {" "}
-              North America
-            </span>{" "}
-            — ensuring quality that meets global standards.
-          </p>
-
-          {/* Animated region highlights */}
-          <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-10 mt-10">
-            {[
-              {
-                title: "🇮🇳 India",
-                desc: "Headquarters & main production facility in Mangalore, Karnataka.",
-              },
-              {
-                title: "🇩🇪 Europe",
-                desc: "Serving clients across Germany, Italy, and the Netherlands.",
-              },
-              {
-                title: "🇺🇸 North America",
-                desc: "Precision components supplied to U.S. manufacturing partners.",
-              },
-            ].map((region, index) => (
-              <motion.div
-                key={index}
-                {...fadeIn}
-                transition={{ delay: 0.2 * index }}
-                className="bg-white/70 backdrop-blur-md border border-slate-200 rounded-xl p-8 hover:shadow-lg hover:border-blue-200 transition-all"
-              >
-                <h3 className="text-xl font-semibold text-slate-800 mb-2">
-                  {region.title}
-                </h3>
-                <p className="text-slate-600 text-base">{region.desc}</p>
-              </motion.div>
-            ))}
-          </div>
-        </motion.div>
-      </section>
-
       {/* ================= INFRASTRUCTURE & FACILITIES ================= */}
       <section className="relative py-28 bg-gradient-to-br from-white via-slate-50 to-slate-100 overflow-hidden">
         {/* Background decorative blurs */}
@@ -1203,113 +1104,47 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* ================= TESTIMONIALS ================= */}
-      <section className="py-24 bg-white text-center">
-        <motion.h2 {...fadeIn} className="text-4xl font-bold mb-12">
-          What Our <span className="text-blue-600">Clients Say</span>
-        </motion.h2>
-        <div className="grid md:grid-cols-3 gap-10 px-6">
-          {[
-            {
-              name: "Sarah Johnson",
-              role: "Procurement Head, NovaTech",
-              feedback:
-                "AB Industries has been a game-changer for our precision needs. Reliable, timely, and quality-driven.",
-            },
-            {
-              name: "David Lee",
-              role: "CTO, InnovateX",
-              feedback:
-                "Their attention to detail and engineering excellence make them a trusted partner.",
-            },
-            {
-              name: "Anita Rao",
-              role: "Operations Director, MechWorks",
-              feedback:
-                "Top-notch quality with proactive communication — our go-to manufacturing partner.",
-            },
-          ].map((t, i) => (
-            <motion.div
-              key={i}
-              {...fadeIn}
-              transition={{ delay: 0.1 * i }}
-              className="bg-slate-50 p-8 rounded-2xl shadow-md hover:shadow-xl transition-all"
-            >
-              <p className="text-slate-700 mb-6 italic">“{t.feedback}”</p>
-              <h4 className="font-semibold text-lg text-blue-700">{t.name}</h4>
-              <p className="text-slate-500 text-sm">{t.role}</p>
-            </motion.div>
-          ))}
-        </div>
-      </section>
-
-      {/* ================= INDUSTRIES ================= */}
-      <section className="relative py-28 bg-gradient-to-b from-white via-slate-50 to-white overflow-hidden">
-        {/* Subtle radial glow */}
-        <motion.div
-          className="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[800px] bg-blue-400/10 rounded-full blur-3xl"
-          animate={{ opacity: [0.4, 0.7, 0.4] }}
-          transition={{ duration: 10, repeat: Infinity, ease: "easeInOut" }}
-        />
-
-        <div className="container mx-auto px-6 relative z-10">
-          <motion.h2
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            viewport={{ once: true }}
-            className="text-4xl md:text-5xl font-extrabold text-center mb-16 text-slate-800"
-          >
-            Industries <span className="text-blue-600">We Serve</span>
-          </motion.h2>
-
-          <div className="grid sm:grid-cols-2 md:grid-cols-4 gap-10">
-            {[
-              { name: "Automotive", icon: "🚗" },
-              { name: "Aerospace", icon: "✈️" },
-              { name: "Medical", icon: "🩺" },
-              { name: "Electronics", icon: "💡" },
-              { name: "Defense", icon: "🛡️" },
-              { name: "Renewables", icon: "⚡" },
-              { name: "Robotics", icon: "🤖" },
-              { name: "Marine", icon: "⚓" },
-            ].map((sector, i) => (
-              <motion.div
-                key={sector.name}
-                initial={{ opacity: 0, y: 40 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: i * 0.05 }}
-                viewport={{ once: true }}
-                whileHover={{
-                  y: -8,
-                  boxShadow: "0 15px 40px rgba(0,0,0,0.1)",
-                }}
-                className="group bg-white border border-slate-200 rounded-2xl shadow-sm hover:shadow-lg transition-all duration-500 hover:-translate-y-1 p-8 flex flex-col items-center text-center"
-              >
-                {/* Icon Circle */}
-                <div className="w-16 h-16 flex items-center justify-center rounded-full bg-blue-50 group-hover:bg-blue-600 transition-all duration-500 mb-5 shadow-inner">
-                  <span className="text-3xl group-hover:scale-110 transition-transform duration-300">
-                    {sector.icon}
-                  </span>
-                </div>
-
-                {/* Title */}
-                <h3 className="text-lg font-semibold text-slate-800 group-hover:text-blue-700 transition-colors">
-                  {sector.name}
-                </h3>
-
-                {/* Decorative Line */}
-                <motion.div
-                  initial={{ scaleX: 0 }}
-                  whileHover={{ scaleX: 1 }}
-                  transition={{ duration: 0.3 }}
-                  className="mt-3 w-10 h-[2px] bg-blue-600 origin-left rounded-full"
-                />
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </section>
+      {/* ================= TESTIMONIALS SECTION ================= */}
+      {/* <TestimonialSection
+        backgroundImage="/bg-map-2.png"
+        testimonials={[
+          {
+            name: "Sarah Johnson",
+            role: "Product Manager, NovaTech",
+            feedback:
+              "Working with AB Industries was seamless — they delivered excellence from start to finish!",
+            rating: 5,
+          },
+          {
+            name: "David Lee",
+            role: "CTO, InnovateX",
+            feedback:
+              "Truly impressed by their technical precision and fast turnaround. Highly recommend.",
+            rating: 4,
+          },
+          {
+            name: "Priya Sharma",
+            role: "Design Head, Vortex Labs",
+            feedback:
+              "A trustworthy team with unmatched attention to detail. Fantastic experience overall!",
+            rating: 5,
+          },
+          {
+            name: "Ravi Shetty",
+            role: "Founder, Codeverse",
+            feedback:
+              "Their innovation and quality mindset helped our product launch faster than expected.",
+            rating: 5,
+          },
+          {
+            name: "Ananya Patel",
+            role: "Operations Head, TechBridge",
+            feedback:
+              "Excellent customer service and premium results — definitely our long-term partner.",
+            rating: 5,
+          },
+        ]}
+      /> */}
 
       {/* ================= CTA ================= */}
       <section className="py-24 bg-gradient-to-r from-blue-700 to-blue-500 text-white text-center relative overflow-hidden">

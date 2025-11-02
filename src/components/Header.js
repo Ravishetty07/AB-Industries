@@ -55,13 +55,13 @@ const Header = () => {
       transition={{ duration: 0.3, ease: "easeInOut" }}
       className={`fixed top-0 w-full z-50 transition-all duration-300 ${
         isTop
-          ? "bg-white backdrop-blur-md"
+          ? "bg-white backdrop-blur-md border-gray-100 rounded-2xl shadow-md"
           : "bg-white backdrop-blur-md shadow-sm border-b border-gray-100"
       }`}
     >
-      <nav className="container mx-auto px-6 py-3 flex justify-between items-center">
+      <nav className="container mx-auto px-6 py-2.5 flex justify-between items-center">
         {/* Logo Section */}
-        <Link href="/" className="flex items-center space-x-2">
+        <Link href="/" className="flex items-center space-x-1">
           <Image
             src="/logo2.png" // make sure this file is inside /public folder
             alt="AB Industries Logo"
@@ -70,6 +70,7 @@ const Header = () => {
             className="object-contain"
             priority
           />
+          <span className="text-xl font-bold text-blue-800">Industries</span>
         </Link>
 
         {/* Desktop Navigation */}

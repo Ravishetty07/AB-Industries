@@ -35,81 +35,29 @@ export default function Home() {
   return (
     <main className="bg-white text-slate-900 overflow-hidden">
       {/* ================= HERO SECTION ================= */}
-      {/* ================= HERO SECTION (CNC / INDUSTRIAL STYLE) ================= */}
-      <section className="relative h-[90vh] flex flex-col justify-center items-center overflow-hidden bg-white text-center">
-        {/* Floating Industrial SVGs */}
-        <motion.div
-          className="absolute top-12 left-[8%] w-14 h-14 text-blue-500/50"
-          animate={{ rotate: 360 }}
-          transition={{ duration: 30, repeat: Infinity, ease: "linear" }}
-        >
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            fill="none"
-            viewBox="0 0 24 24"
-            strokeWidth="1.5"
-            stroke="currentColor"
-          >
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              d="M9.75 3v1.5m4.5-1.5V4.5m-9 9H3m18 0h-2.25m-9 7.5V21m4.5-1.5V21m3.03-14.47l1.06 1.06m-11.31 0l1.06-1.06m11.31 11.31l-1.06 1.06m-9.19-1.06l-1.06 1.06M12 8.25a3.75 3.75 0 110 7.5 3.75 3.75 0 010-7.5z"
-            />
-          </svg>
-        </motion.div>
+      {/* ========== HERO SECTION (CLEAN + VIBRANT) ========== */}
+      <section className="relative flex flex-col items-center justify-center text-center h-[100vh] overflow-hidden">
+        {/* Background Image */}
+        <div
+          className="absolute inset-0 bg-cover bg-center"
+          style={{ backgroundImage: "url('/home1.jpg')" }}
+        />
 
-        <motion.div
-          className="absolute bottom-16 right-[10%] w-20 h-20 text-blue-400/50"
-          animate={{ rotate: -360 }}
-          transition={{ duration: 40, repeat: Infinity, ease: "linear" }}
-        >
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            fill="none"
-            viewBox="0 0 24 24"
-            strokeWidth="1.5"
-            stroke="currentColor"
-          >
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              d="M12 6v12m6-6H6"
-            />
-          </svg>
-        </motion.div>
+        {/* Vibrant Overlay */}
+        <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/50 to-black/80" />
 
-        <motion.div
-          className="absolute top-[25%] right-[20%] w-12 h-12 text-blue-300/60"
-          animate={{ y: [0, -20, 0], opacity: [0.6, 1, 0.6] }}
-          transition={{ duration: 8, repeat: Infinity }}
-        >
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            fill="none"
-            viewBox="0 0 24 24"
-            strokeWidth="1.5"
-            stroke="currentColor"
-          >
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              d="M9 9l10.5 10.5m-3.94-3.94A8.25 8.25 0 1119 10.5a8.25 8.25 0 01-3.44 6.56z"
-            />
-          </svg>
-        </motion.div>
-
-        {/* Faint Blueprint Lines (background grid) */}
-        <div className="absolute inset-0 bg-[linear-gradient(to_right,rgba(0,0,0,0.03)_1px,transparent_1px),linear-gradient(to_bottom,rgba(0,0,0,0.03)_1px,transparent_1px)] bg-[size:50px_50px]" />
+        {/* Optional Blueprint-style Grid Overlay (can remove if you want plain bg) */}
+        <div className="absolute inset-0 bg-[linear-gradient(to_right,rgba(255,255,255,0.04)_1px,transparent_1px),linear-gradient(to_bottom,rgba(255,255,255,0.04)_1px,transparent_1px)] bg-[size:60px_60px]" />
 
         {/* Content */}
-        <div className="relative z-10 px-6">
+        <div className="relative z-10 px-6 max-w-4xl">
           <motion.h1
-            initial={{ opacity: 0, y: 40 }}
+            initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
-            className="text-5xl md:text-7xl font-extrabold tracking-tight text-slate-900 mb-6"
+            className="text-5xl md:text-7xl font-extrabold text-white leading-tight mb-6"
           >
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-700 via-blue-500 to-cyan-400">
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-cyan-300 to-blue-500">
               Redefining Precision
             </span>
             <br />
@@ -120,23 +68,23 @@ export default function Home() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.3, duration: 0.8 }}
-            className="text-slate-600 text-lg md:text-xl max-w-2xl mx-auto mb-10 leading-relaxed"
+            className="text-gray-200 text-lg md:text-xl leading-relaxed mb-10"
           >
             High-accuracy CNC machining and rapid prototyping for industries
             where precision drives performance.
           </motion.p>
 
-          {/* CTA */}
+          {/* CTA Button */}
           <motion.div
             whileHover={{
               scale: 1.05,
-              boxShadow: "0px 0px 25px rgba(37,99,235,0.3)",
+              // boxShadow: "0px 0px 25px rgba(37,99,235,0.5)",
             }}
             transition={{ type: "spring", stiffness: 200 }}
           >
             <Link
               href="/contact"
-              className="inline-flex items-center gap-2 px-8 py-4 bg-blue-600 text-white font-semibold rounded-lg hover:bg-blue-700 transition-all shadow-md"
+              className="inline-flex items-center gap-2 px-8 py-4 bg-blue-600 text-white font-semibold rounded-xl hover:bg-blue-700 transition-all shadow-lg"
             >
               Get a Free Quote
               <ArrowRight className="w-5 h-5" />
@@ -144,30 +92,13 @@ export default function Home() {
           </motion.div>
         </div>
 
-        {/* Floating Gear Icons Layer */}
-        <motion.div
-          className="absolute left-[5%] bottom-[15%] text-blue-300/40"
-          animate={{ rotate: 360 }}
-          transition={{ duration: 50, repeat: Infinity, ease: "linear" }}
-        >
-          <Cog className="w-16 h-16" />
-        </motion.div>
-
-        <motion.div
-          className="absolute right-[5%] top-[15%] text-blue-400/30"
-          animate={{ rotate: -360 }}
-          transition={{ duration: 60, repeat: Infinity, ease: "linear" }}
-        >
-          <Cog className="w-20 h-20" />
-        </motion.div>
-
         {/* Scroll Indicator */}
         <motion.div
-          className="absolute bottom-8 text-slate-500 flex flex-col items-center"
+          className="absolute bottom-8 text-gray-400 flex flex-col items-center"
           animate={{ y: [0, 10, 0] }}
           transition={{ duration: 1.5, repeat: Infinity, ease: "easeInOut" }}
         >
-          <div className="w-0.5 h-8 bg-slate-400/40 mb-2 rounded-full" />
+          <div className="w-0.5 h-8 bg-gray-400/40 mb-2 rounded-full" />
           <p className="text-xs uppercase tracking-widest">Scroll</p>
         </motion.div>
       </section>
@@ -187,11 +118,6 @@ export default function Home() {
           "manufacturing",
         ]}
       />
-
-      {/* ================= SKIPER30 SECTION ================= */}
-      <section className="relative z-10">
-        <Skiper30 />
-      </section>
 
       {/* ================= TEXT SCROLL SECTION ================= */}
       <TextScroll text="AB INDUSTRIES" default_velocity={6} />
@@ -268,7 +194,7 @@ export default function Home() {
           >
             <div className="relative w-full h-[600px] rounded-2xl overflow-hidden shadow-2xl">
               <Image
-                src="/about-epsilon-01-1.png"
+                src="/machine.jpg"
                 alt="AB Industries Facility"
                 fill
                 className="object-cover object-center transform group-hover:scale-105 transition-transform duration-700 ease-out"
@@ -425,7 +351,7 @@ export default function Home() {
             transition={{ delay: 0.4, duration: 0.8 }}
             className="text-blue-600 font-semibold tracking-wide"
           >
-            50+ Clients • 6 Major Industries • Global Reach 🌍
+            50+ Clients • 25+ Major Industries • Global Reach 🌍
           </motion.p>
         </div>
 
@@ -660,6 +586,11 @@ export default function Home() {
           },
         ]}
       />
+
+      {/* ================= SKIPER30 SECTION ================= */}
+      <section className="relative z-10">
+        <Skiper30 />
+      </section>
 
       {/* ================= FINAL CTA ================= */}
       {/* ================= FINAL CTA ================= */}

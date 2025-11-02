@@ -4,8 +4,6 @@ import { motion } from "framer-motion";
 import { LocationIcon, PhoneIcon, EmailIcon } from "../../components/Icons";
 import Image from "next/image";
 
-
-
 export default function ContactPage() {
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -337,7 +335,7 @@ export default function ContactPage() {
 
       {/* ================= QUICK SUPPORT CHANNELS ================= */}
       <section className="relative py-24 bg-gradient-to-b from-slate-50 to-white overflow-hidden">
-        {/* Decorative Gradient Orbs */}
+        {/* Decorative Background Orbs */}
         <motion.div
           className="absolute -top-20 -left-20 w-96 h-96 bg-blue-200/30 rounded-full blur-3xl"
           animate={{ scale: [1, 1.1, 1], opacity: [0.2, 0.4, 0.2] }}
@@ -357,7 +355,7 @@ export default function ContactPage() {
             Other Ways to <span className="text-blue-600">Connect</span>
           </motion.h2>
 
-          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-10">
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
             {[
               {
                 icon: (
@@ -378,6 +376,8 @@ export default function ContactPage() {
                 ),
                 title: "WhatsApp Support",
                 desc: "+91 99800 41620, +91 98804 01262 💬",
+                href: "https://wa.me/919980041620",
+                bg: "hover:bg-green-50",
               },
               {
                 icon: (
@@ -398,6 +398,8 @@ export default function ContactPage() {
                 ),
                 title: "General Enquiries",
                 desc: "abindustries4851@gmail.com",
+                href: "mailto:abindustries4851@gmail.com",
+                bg: "hover:bg-blue-50",
               },
               {
                 icon: (
@@ -418,44 +420,29 @@ export default function ContactPage() {
                 ),
                 title: "Sales & Quotes",
                 desc: "📩 abindustries4851@gmail.com",
-              },
-              {
-                icon: (
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    className="w-8 h-8 text-pink-500"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    stroke="currentColor"
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth={2}
-                      d="M12 11c0-1.657 1.343-3 3-3h6v6h-6a3 3 0 01-3-3zM3 5h6v6H3V5z"
-                    />
-                  </svg>
-                ),
-                title: "Careers & Opportunities",
-                desc: "📧 hr@abindustries.in",
+                href: "mailto:abindustries4851@gmail.com",
+                bg: "hover:bg-yellow-50",
               },
             ].map((item, i) => (
-              <motion.div
+              <motion.a
                 key={i}
+                href={item.href}
+                target="_blank"
+                rel="noopener noreferrer"
                 {...fadeIn}
                 transition={{ delay: 0.05 * i }}
-                className="relative bg-white/90 backdrop-blur-lg border border-slate-200 rounded-2xl p-8 shadow-md hover:shadow-xl hover:-translate-y-1 transition-all"
+                className={`group relative bg-white/90 backdrop-blur-lg border border-slate-200 rounded-2xl p-8 shadow-md hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 ${item.bg}`}
               >
                 <div className="flex flex-col items-center justify-center space-y-4">
-                  <div className="p-4 bg-blue-50 rounded-full shadow-inner">
+                  <div className="p-4 bg-slate-100 rounded-full group-hover:scale-110 transition-transform shadow-inner">
                     {item.icon}
                   </div>
-                  <h3 className="font-semibold text-lg text-slate-800">
+                  <h3 className="font-semibold text-lg text-slate-800 group-hover:text-blue-600">
                     {item.title}
                   </h3>
                   <p className="text-slate-600 text-sm">{item.desc}</p>
                 </div>
-              </motion.div>
+              </motion.a>
             ))}
           </div>
         </div>

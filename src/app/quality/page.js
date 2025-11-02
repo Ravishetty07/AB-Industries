@@ -29,7 +29,7 @@ export default function QualityPage() {
         {/* Real factory background with gradient overlay */}
         <div className="absolute inset-0">
           <img
-            src="/about-2.avif"
+            src="/machine.jpg"
             alt="AB Industries Facility"
             className="w-full h-full object-cover opacity-70"
           />
@@ -215,6 +215,131 @@ export default function QualityPage() {
                 </svg>
                 ISO 9001:2015 Certified
               </div>
+            </div>
+          </motion.div>
+        </div>
+      </section>
+
+      {/* ================= QUALITY & INSPECTION STANDARDS ================= */}
+      <section className="relative py-28 bg-gradient-to-br from-blue-50 via-white to-slate-50 overflow-hidden">
+        {/* Ambient Glow Shapes */}
+        <div className="absolute top-10 left-10 w-[400px] h-[400px] bg-blue-200/20 rounded-full blur-3xl" />
+        <div className="absolute bottom-10 right-10 w-[350px] h-[350px] bg-blue-100/30 rounded-full blur-3xl" />
+
+        <div className="container mx-auto px-6 grid md:grid-cols-2 gap-16 items-center relative z-10">
+          {/* Left Content */}
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+            viewport={{ once: true }}
+          >
+            <h2 className="text-4xl md:text-5xl font-extrabold mb-6 text-slate-800 leading-tight">
+              Quality &{" "}
+              <span className="text-blue-700">Inspection Standards</span>
+            </h2>
+
+            <div className="w-24 h-[3px] bg-blue-600 rounded-full mb-6" />
+
+            <p className="text-slate-600 text-lg leading-relaxed mb-6">
+              At{" "}
+              <span className="font-semibold text-slate-800">
+                A.B. Industries
+              </span>
+              , precision isn’t an afterthought — it’s embedded into every
+              process. Our facility adheres to{" "}
+              <span className="text-blue-700 font-semibold">ISO 9001:2015</span>{" "}
+              standards, ensuring that every component meets the most demanding
+              specifications.
+            </p>
+
+            <ul className="space-y-4 text-slate-700">
+              <li className="flex items-start gap-3">
+                <span className="text-blue-600 text-xl">🔍</span>
+                <p>
+                  <span className="font-semibold">CMM Inspection:</span>{" "}
+                  High-accuracy Coordinate Measuring Machine ensures
+                  zero-tolerance precision.
+                </p>
+              </li>
+              <li className="flex items-start gap-3">
+                <span className="text-blue-600 text-xl">📊</span>
+                <p>
+                  <span className="font-semibold">
+                    Digital Quality Reports:
+                  </span>{" "}
+                  Each part is traceable through a data-driven inspection
+                  process.
+                </p>
+              </li>
+              <li className="flex items-start gap-3">
+                <span className="text-blue-600 text-xl">🧾</span>
+                <p>
+                  <span className="font-semibold">Material Traceability:</span>{" "}
+                  From raw materials to final delivery — every stage is
+                  documented and certified.
+                </p>
+              </li>
+            </ul>
+
+            <div className="mt-8">
+              <Link
+                href="/quality"
+                className="inline-flex items-center gap-2 bg-blue-700 text-white px-8 py-4 rounded-lg font-semibold shadow-lg hover:bg-blue-800 transition-all"
+              >
+                Learn More About Our Quality
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  className="w-5 h-5"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M17 8l4 4m0 0l-4 4m4-4H3"
+                  />
+                </svg>
+              </Link>
+            </div>
+          </motion.div>
+
+          {/* Right Image Grid */}
+          <motion.div
+            initial={{ opacity: 0, scale: 0.95 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.8, delay: 0.2 }}
+            viewport={{ once: true }}
+            className="grid grid-cols-2 gap-6"
+          >
+            <div className="relative rounded-2xl overflow-hidden shadow-lg group">
+              <Image
+                src="/iso.jpg"
+                alt="ISO Certification"
+                width={500}
+                height={350}
+                className="object-contain w-full h-100 group-hover:scale-105 transition-transform duration-700"
+              />
+              <div className="absolute inset-0 bg-black/20 group-hover:bg-black/10 transition-colors duration-500" />
+              <p className="absolute bottom-3 left-3 bg-white/80 text-slate-800 text-sm px-3 py-1 rounded-md font-medium">
+                ISO 9001:2015 Certified
+              </p>
+            </div>
+
+            <div className="relative rounded-2xl overflow-hidden shadow-lg group">
+              <Image
+                src="/inspection-area.jpg"
+                alt="Inspection Area"
+                width={500}
+                height={350}
+                className="object-contain w-full h-100 group-hover:scale-105 transition-transform duration-700"
+              />
+              <div className="absolute inset-0 bg-black/20 group-hover:bg-black/10 transition-colors duration-500" />
+              <p className="absolute bottom-3 left-3 bg-white/80 text-slate-800 text-sm px-3 py-1 rounded-md font-medium">
+                CMM & Digital Inspection
+              </p>
             </div>
           </motion.div>
         </div>
@@ -426,54 +551,6 @@ export default function QualityPage() {
               </motion.div>
             ))}
           </div>
-        </div>
-      </section>
-
-      {/* ================= FEATURED COMPONENTS ================= */}
-      <section className="py-24 bg-slate-50">
-        <div className="container mx-auto px-6 text-center">
-          <motion.h2
-            {...fadeIn}
-            className="text-4xl font-bold mb-4 text-slate-800"
-          >
-            Featured <span className="text-blue-600">Components</span>
-          </motion.h2>
-          <p className="text-slate-600 mb-12 max-w-2xl mx-auto">
-            A glimpse into the high-precision parts crafted by our engineers.
-          </p>
-          <motion.div {...fadeIn}>
-            <QualityCarousel />
-          </motion.div>
-        </div>
-      </section>
-
-      {/* ================= FINAL CTA ================= */}
-      <section className="py-24 bg-blue-700 text-white text-center relative overflow-hidden">
-        <motion.div
-          className="absolute inset-0 bg-[url('/bg-map-2.png')] opacity-10 bg-cover bg-center"
-          animate={{ backgroundPosition: ["0% 0%", "100% 100%"] }}
-          transition={{ duration: 30, repeat: Infinity, ease: "linear" }}
-        />
-        <div className="relative z-10">
-          <motion.h2 {...fadeIn} className="text-4xl font-bold mb-6">
-            Built for Precision. Committed to Quality.
-          </motion.h2>
-          <motion.p
-            {...fadeIn}
-            transition={{ delay: 0.1 }}
-            className="max-w-2xl mx-auto mb-10 text-blue-100"
-          >
-            Partner with AB Industries for defect-free manufacturing, every
-            time.
-          </motion.p>
-          <motion.div {...fadeIn} transition={{ delay: 0.2 }}>
-            <Link
-              href="/contact"
-              className="inline-flex items-center gap-2 bg-white text-blue-700 font-semibold px-8 py-4 rounded-lg shadow-lg hover:bg-gray-100 transition-transform hover:scale-[1.03]"
-            >
-              Request a Quality Audit
-            </Link>
-          </motion.div>
         </div>
       </section>
     </>
