@@ -3,6 +3,7 @@
 
 import './globals.css';
 import { Inter } from 'next/font/google';
+import { Analytics } from "@vercel/analytics/next"
 
 // 1. IMPORT LENIS
 import ReactLenis from 'lenis/react';
@@ -28,6 +29,7 @@ export default function RootLayout({ children }) {
           <Header />
           <main>{children}</main>
           <Footer />
+          <Analytics />
         </body>
       </ReactLenis>
     </html>
