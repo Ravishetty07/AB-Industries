@@ -7,59 +7,49 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 import Lenis from "lenis";
 import { cn } from "@/lib/utils";
 
-interface CardData {
-  id: number | string;
-  image: string;
-  alt?: string;
-}
-
-interface StickyCard002Props {
-  cards: CardData[];
-  className?: string;
-  containerClassName?: string;
-  imageClassName?: string;
-}
-
-// ✅ Smooth scroll hook using Lenis
+// ✅ Smooth scroll
 function useLenis() {
   useEffect(() => {
     if (typeof window === "undefined") return;
 
-    // ✅ Updated options for new Lenis API
     const lenis = new Lenis({
-      lerp: 0.1, // smoothness (0–1)
-      wheelMultiplier: 1.2,
-      touchMultiplier: 1.2,
-      duration: 1.2,
+      lerp: 0.075,        // Lower = smoother
+      duration: 1.6,      // Smooth feel
+      smoothTouch: true,  // ✅ enable mobile smoothness
+      wheelMultiplier: 0.9,
+      touchMultiplier: 0.6, // ✅ reduce touch speed (fix mobile jump)
+    } as any);
+
+    // ✅ Sync GSAP with Lenis
+    gsap.ticker.add((time) => {
+      lenis.raf(time * 1000);
     });
 
-    function raf(time: number) {
-      lenis.raf(time);
-      requestAnimationFrame(raf);
-    }
+    gsap.ticker.lagSmoothing(0);
 
-    requestAnimationFrame(raf);
     return () => lenis.destroy();
   }, []);
 }
 
 
+
 const StickyCard002 = ({
   cards,
-  className,
-  containerClassName,
-  imageClassName,
-}: StickyCard002Props) => {
-  const container = useRef<HTMLDivElement>(null);
-  const imageRefs = useRef<(HTMLImageElement | null)[]>([]);
+  className = "",
+  containerClassName = "",
+  imageClassName = "",
+}) => {
+  const container = useRef(null);
+  const imageRefs = useRef([]);
 
   useGSAP(
     () => {
       if (typeof window === "undefined") return;
-      gsap.registerPlugin(ScrollTrigger);
 
+      gsap.registerPlugin(ScrollTrigger);
       const images = imageRefs.current;
       const total = images.length;
+
       if (!total) return;
 
       gsap.set(images[0], { y: "0%", scale: 1 });
@@ -81,30 +71,53 @@ const StickyCard002 = ({
       for (let i = 0; i < total - 1; i++) {
         const current = images[i];
         const next = images[i + 1];
-        if (!current || !next) continue;
 
-        tl.to(current, { scale: 0.8, rotation: 3, duration: 1 }, i)
-          .to(next, { y: "0%", duration: 1 }, i);
+        tl.to(current, { scale: 0.85, rotation: 18, duration: 1 }, i).to(
+          next,
+          { y: "0%", duration: 1 },
+          i
+        );
       }
 
-      const resizeObserver = new ResizeObserver(() => ScrollTrigger.refresh());
-      if (container.current) resizeObserver.observe(container.current);
-
-      return () => {
-        resizeObserver.disconnect();
-        tl.kill();
-        ScrollTrigger.getAll().forEach((t) => t.kill());
-      };
+      ScrollTrigger.refresh();
     },
     { scope: container }
   );
 
   return (
     <div ref={container} className={cn("relative h-full w-full", className)}>
-      <div className="sticky-cards relative flex h-screen items-center justify-center overflow-hidden p-3 lg:p-8">
+      {/* ⚙️ Background SVG gears */}
+      <svg
+        className="pointer-events-none absolute left-5 top-20 h-28 w-28 opacity-25 animate-spin-slow"
+        viewBox="0 0 100 100"
+      >
+        <circle
+          cx="50"
+          cy="50"
+          r="35"
+          stroke="white"
+          strokeWidth="5"
+          fill="none"
+        />
+      </svg>
+      <svg
+        className="pointer-events-none absolute right-5 bottom-20 h-28 w-28 opacity-25 animate-spin-slow-reverse"
+        viewBox="0 0 100 100"
+      >
+        <circle
+          cx="50"
+          cy="50"
+          r="25"
+          stroke="white"
+          strokeWidth="4"
+          fill="none"
+        />
+      </svg>
+
+      <div className="sticky-cards relative flex h-screen items-center justify-center overflow-hidden p-2 sm:p-4 lg:p-12">
         <div
           className={cn(
-            "relative h-[90%] w-full max-w-2xl overflow-hidden rounded-xl",
+            "relative h-[55vh] sm:h-[80vh] w-full max-w-[90%] sm:max-w-3xl lg:max-w-5xl mx-auto overflow-hidden rounded-xl border border-white/10 shadow-2xl",
             containerClassName
           )}
         >
@@ -112,12 +125,12 @@ const StickyCard002 = ({
             <img
               key={card.id}
               src={card.image}
-              alt={card.alt || ""}
+              alt=""
               ref={(el) => {
                 imageRefs.current[i] = el;
               }}
               className={cn(
-                "absolute inset-0 h-full w-full object-cover rounded-xl",
+                "absolute inset-0 h-full w-full object-cover rounded-2xl",
                 imageClassName
               )}
             />
@@ -129,18 +142,24 @@ const StickyCard002 = ({
 };
 
 export const Skiper17 = () => {
-  useLenis(); // ✅ Activate smooth scrolling
-
+  useLenis();
   const defaultCards = [
-    { id: 1, image: "/hero-bg.jpg" },
-    { id: 2, image: "/about-epsilon-01-1.png" },
-    { id: 3, image: "/cnc-machine-1.jpg" },
-    { id: 4, image: "/Five-Axis-Machining-Service.jpg" },
+    { id: 1, image: "/new1.jpg" },
+    { id: 2, image: "/new2.jpg" },
+    { id: 3, image: "/new3.jpg" },
+    { id: 4, image: "/new5.jpg" },
   ];
 
   return (
-    <div className="h-[400vh] w-full">
-      <StickyCard002 cards={defaultCards} />
+    <div className="h-[400vh] w-full bg-black text-white">
+      <StickyCard002
+        cards={defaultCards}
+        className=""
+        containerClassName=""
+        imageClassName=""
+      />
     </div>
   );
 };
+
+export default Skiper17;

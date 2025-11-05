@@ -5,13 +5,18 @@ import Link from "next/link";
 import Image from "next/image";
 
 import { Skiper51 } from "@/components/ui/skiper-ui/skiper51";
-import MaskedDiv from "@/components/ui/masked-div";
+import { Skiper48 } from "@/components/ui/skiper-ui/skiper48";
+import { Skiper17 } from "@/components/ui/skiper-ui/skiper17";
 
-import { motion, useScroll, useTransform, useReducedMotion } from "framer-motion";
+import {
+  motion,
+  useScroll,
+  useTransform,
+  useReducedMotion,
+} from "framer-motion";
 import {
   MoveRight,
   ArrowRight,
-  CheckCircle,
   Layers,
   Target,
   Cog,
@@ -53,8 +58,16 @@ const METRICS = [
         stroke="currentColor"
         strokeWidth={1.6}
       >
-        <path strokeLinecap="round" strokeLinejoin="round" d="M12 11c2.21 0 4-1.79 4-4S14.21 3 12 3 8 4.79 8 7s1.79 4 4 4z" />
-        <path strokeLinecap="round" strokeLinejoin="round" d="M4 21v-1a7 7 0 0114 0v1" />
+        <path
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          d="M12 11c2.21 0 4-1.79 4-4S14.21 3 12 3 8 4.79 8 7s1.79 4 4 4z"
+        />
+        <path
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          d="M4 21v-1a7 7 0 0114 0v1"
+        />
       </svg>
     ),
   },
@@ -107,7 +120,11 @@ const METRICS = [
         stroke="currentColor"
         strokeWidth={1.6}
       >
-        <path strokeLinecap="round" strokeLinejoin="round" d="M3 3v18h18V3H3zM7 9h10M7 15h10M9 7v10" />
+        <path
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          d="M3 3v18h18V3H3zM7 9h10M7 15h10M9 7v10"
+        />
       </svg>
     ),
   },
@@ -199,7 +216,10 @@ export default function ProjectsPage() {
       {/* ================= ENHANCED HERO SECTION ================= */}
       <section className="relative h-screen flex flex-col justify-center items-center overflow-hidden text-white">
         {/* Parallax Background - useTransform controls only translateY */}
-        <motion.div className="absolute inset-0 z-0 will-change-transform" style={{ y }}>
+        <motion.div
+          className="absolute inset-0 z-0 will-change-transform"
+          style={{ y }}
+        >
           <Image
             src="/cnc-1.avif"
             alt="AB Industries Projects Background"
@@ -219,7 +239,10 @@ export default function ProjectsPage() {
               ? { opacity: 0.45 }
               : { scale: [1, 1.12, 1], opacity: [0.32, 0.56, 0.32] }
           }
-          transition={{ duration: 9, repeat: shouldReduceMotion ? 0 : Infinity }}
+          transition={{
+            duration: 9,
+            repeat: shouldReduceMotion ? 0 : Infinity,
+          }}
           aria-hidden
         />
         <motion.div
@@ -229,7 +252,10 @@ export default function ProjectsPage() {
               ? { opacity: 0.28 }
               : { scale: [1.06, 0.95, 1.06], opacity: [0.28, 0.56, 0.28] }
           }
-          transition={{ duration: 11, repeat: shouldReduceMotion ? 0 : Infinity }}
+          transition={{
+            duration: 11,
+            repeat: shouldReduceMotion ? 0 : Infinity,
+          }}
           aria-hidden
         />
 
@@ -245,41 +271,54 @@ export default function ProjectsPage() {
         <motion.div
           className="absolute top-[25%] right-[15%] text-blue-500/50 will-change-transform"
           animate={
-            shouldReduceMotion
-              ? {}
-              : { rotate: [-360, 0] } // long reverse rotate
+            shouldReduceMotion ? {} : { rotate: [-360, 0] } // long reverse rotate
           }
-          transition={{ duration: 85, repeat: shouldReduceMotion ? 0 : Infinity, ease: "linear" }}
+          transition={{
+            duration: 85,
+            repeat: shouldReduceMotion ? 0 : Infinity,
+            ease: "linear",
+          }}
           aria-hidden
         >
-          <Wrench className="w-12 h-12 md:w-16 md:h-16" />
+          {/* <Wrench className="w-12 h-12 md:w-16 md:h-16" /> */}
         </motion.div>
 
         <motion.div
           className="absolute bottom-[10%] left-[20%] text-blue-300/50 will-change-transform"
           animate={shouldReduceMotion ? {} : { y: [0, -12, 0] }}
-          transition={{ duration: 6, repeat: shouldReduceMotion ? 0 : Infinity }}
+          transition={{
+            duration: 6,
+            repeat: shouldReduceMotion ? 0 : Infinity,
+          }}
           aria-hidden
         >
-          <Factory className="w-20 h-20" />
+          {/* <Factory className="w-20 h-20" /> */}
         </motion.div>
 
         <motion.div
           className="absolute top-[60%] right-[25%] text-blue-400/40 will-change-transform"
           animate={shouldReduceMotion ? {} : { y: [0, 16, 0] }}
-          transition={{ duration: 8, repeat: shouldReduceMotion ? 0 : Infinity }}
+          transition={{
+            duration: 8,
+            repeat: shouldReduceMotion ? 0 : Infinity,
+          }}
           aria-hidden
         >
-          <Layers className="w-20 h-20" />
+          {/* <Layers className="w-20 h-20" /> */}
         </motion.div>
 
         <motion.div
           className="absolute bottom-[20%] right-[10%] text-blue-300/50 will-change-transform"
-          animate={shouldReduceMotion ? {} : { y: [0, -18, 0], rotate: [0, 14, 0] }}
-          transition={{ duration: 9, repeat: shouldReduceMotion ? 0 : Infinity }}
+          animate={
+            shouldReduceMotion ? {} : { y: [0, -18, 0], rotate: [0, 14, 0] }
+          }
+          transition={{
+            duration: 9,
+            repeat: shouldReduceMotion ? 0 : Infinity,
+          }}
           aria-hidden
         >
-          <Target className="w-20 h-20" />
+          {/* <Target className="w-20 h-20" /> */}
         </motion.div>
 
         {/* Subtle Metal Texture layer (low opacity, CSS only) */}
@@ -302,7 +341,9 @@ export default function ProjectsPage() {
             transition={{ delay: 0.3, duration: 0.8 }}
             className="text-blue-100 text-lg md:text-xl max-w-2xl mx-auto mb-8 leading-relaxed"
           >
-            Explore a collection of real-world precision engineering solutions — from aerospace-grade components to complex automation parts, crafted with accuracy and passion.
+            Explore a collection of real-world precision engineering solutions —
+            from aerospace-grade components to complex automation parts, crafted
+            with accuracy and passion.
           </motion.p>
 
           <motion.div
@@ -327,7 +368,11 @@ export default function ProjectsPage() {
             key={p.id}
             className="absolute w-2 h-2 bg-blue-400/50 rounded-full blur-sm will-change-transform"
             style={{ top: p.top, left: p.left }}
-            animate={shouldReduceMotion ? {} : { y: [0, -8, 0], opacity: [0.28, 0.7, 0.28] }}
+            animate={
+              shouldReduceMotion
+                ? {}
+                : { y: [0, -8, 0], opacity: [0.28, 0.7, 0.28] }
+            }
             transition={{
               duration: p.dur,
               repeat: Infinity,
@@ -375,7 +420,9 @@ export default function ProjectsPage() {
                 <h3 className="text-5xl md:text-6xl font-extrabold text-blue-700 mb-1">
                   <AnimatedNumber value={stat.num} postfix={stat.suffix} />
                 </h3>
-                <p className="text-slate-600 font-semibold tracking-wide">{stat.label}</p>
+                <p className="text-slate-600 font-semibold tracking-wide">
+                  {stat.label}
+                </p>
 
                 <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-2/3 h-[3px] bg-gradient-to-r from-blue-400 via-indigo-500 to-blue-400 rounded-full opacity-80" />
               </motion.div>
@@ -407,10 +454,25 @@ export default function ProjectsPage() {
         />
 
         {/* Decorative SVGs (reduced work - simple CSS animations) */}
-        <svg className="absolute top-10 left-1/4 w-14 h-14 animate-[spin_25s_linear_infinite] text-blue-700/20" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.2} d="M12 6v6l4 2" />
+        <svg
+          className="absolute top-10 left-1/4 w-14 h-14 animate-[spin_25s_linear_infinite] text-blue-700/20"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke="currentColor"
+        >
+          <path
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            strokeWidth={1.2}
+            d="M12 6v6l4 2"
+          />
         </svg>
-        <svg className="absolute bottom-10 right-1/3 w-12 h-12 animate-[spin_30s_linear_infinite] text-blue-500/15" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <svg
+          className="absolute bottom-10 right-1/3 w-12 h-12 animate-[spin_30s_linear_infinite] text-blue-500/15"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke="currentColor"
+        >
           <circle cx="12" cy="12" r="9" strokeWidth="1.2" />
         </svg>
 
@@ -434,7 +496,9 @@ export default function ProjectsPage() {
             dragElastic={0.08}
             dragTransition={{ bounceStiffness: 120, bounceDamping: 24 }}
             // only auto-animate on non-mobile and if user doesn't prefer reduced motion
-            animate={!isMobile && !shouldReduceMotion ? { x: ["0%", "-50%"] } : {}}
+            animate={
+              !isMobile && !shouldReduceMotion ? { x: ["0%", "-50%"] } : {}
+            }
             transition={
               !isMobile && !shouldReduceMotion
                 ? { duration: 36, ease: "linear", repeat: Infinity }
@@ -445,7 +509,11 @@ export default function ProjectsPage() {
             {[...PROJECTS, ...PROJECTS].map((p, i) => (
               <motion.div
                 key={i}
-                whileHover={shouldReduceMotion ? {} : { rotateY: 3.5, rotateX: -1.8, y: -6, scale: 1.04 }}
+                whileHover={
+                  shouldReduceMotion
+                    ? {}
+                    : { rotateY: 3.5, rotateX: -1.8, y: -6, scale: 1.04 }
+                }
                 transition={{ type: "spring", stiffness: 140, damping: 18 }}
                 className="relative shrink-0 w-64 sm:w-72 md:w-80 lg:w-96 bg-gradient-to-b from-slate-800 to-slate-900 rounded-3xl overflow-hidden shadow-2xl border border-slate-700 hover:border-blue-500/50 transition-all duration-300"
               >
@@ -465,8 +533,13 @@ export default function ProjectsPage() {
                 </div>
 
                 <div className="p-5 relative z-10">
-                  <h3 className="text-lg sm:text-xl font-semibold text-blue-300 mb-1">{p.alt}</h3>
-                  <p className="text-slate-400 text-sm leading-relaxed">High-precision component manufacturing with next-gen automation.</p>
+                  <h3 className="text-lg sm:text-xl font-semibold text-blue-300 mb-1">
+                    {p.alt}
+                  </h3>
+                  <p className="text-slate-400 text-sm leading-relaxed">
+                    High-precision component manufacturing with next-gen
+                    automation.
+                  </p>
                 </div>
               </motion.div>
             ))}
@@ -481,14 +554,27 @@ export default function ProjectsPage() {
           transition={{ duration: 0.7 }}
           className="mt-16 text-center relative z-10"
         >
-          <p className="text-slate-400 text-lg mb-6">Want to explore more of our work?</p>
+          <p className="text-slate-400 text-lg mb-6">
+            Want to explore more of our work?
+          </p>
           <a
             href="/contact"
             className="inline-flex items-center gap-3 px-8 py-4 bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 rounded-xl text-white font-semibold text-lg shadow-[0_0_25px_rgba(30,64,175,0.4)] transition-all duration-300"
           >
             Request a Quote
-            <svg xmlns="http://www.w3.org/2000/svg" className="w-5 h-5" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor">
-              <path strokeLinecap="round" strokeLinejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              className="w-5 h-5"
+              fill="none"
+              viewBox="0 0 24 24"
+              strokeWidth={2}
+              stroke="currentColor"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                d="M17 8l4 4m0 0l-4 4m4-4H3"
+              />
             </svg>
           </a>
         </motion.div>
@@ -496,58 +582,78 @@ export default function ProjectsPage() {
         {/* Custom animations (moved most to CSS keyframes to reduce JS) */}
         <style jsx>{`
           @keyframes spin-slow {
-            0% { transform: rotate(0deg); }
-            100% { transform: rotate(360deg); }
+            0% {
+              transform: rotate(0deg);
+            }
+            100% {
+              transform: rotate(360deg);
+            }
           }
           @keyframes bounce-slow {
-            0%, 100% { transform: translateY(0); }
-            50% { transform: translateY(-10px); }
+            0%,
+            100% {
+              transform: translateY(0);
+            }
+            50% {
+              transform: translateY(-10px);
+            }
           }
-          .animate-spin-slow { animation: spin-slow 25s linear infinite; }
-          .animate-bounce-slow { animation: bounce-slow 5s ease-in-out infinite; }
-          @keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
-          .animate-[spin_25s_linear_infinite] { animation: spin 25s linear infinite; }
-          .animate-[spin_30s_linear_infinite] { animation: spin 30s linear infinite; }
+          .animate-spin-slow {
+            animation: spin-slow 25s linear infinite;
+          }
+          .animate-bounce-slow {
+            animation: bounce-slow 5s ease-in-out infinite;
+          }
+          @keyframes spin {
+            0% {
+              transform: rotate(0deg);
+            }
+            100% {
+              transform: rotate(360deg);
+            }
+          }
+          .animate-[spin_25s_linear_infinite] {
+            animation: spin 25s linear infinite;
+          }
+          .animate-[spin_30s_linear_infinite] {
+            animation: spin 30s linear infinite;
+          }
         `}</style>
       </section>
 
-      {/* ================= VIDEO SHOWCASE WITH MASKING skiper Ui ================= */}
-      <div ref={maskedRef} className="items-between m-auto mt-40 flex max-w-5xl flex-wrap justify-between gap-5">
-        {/* lazy-mount heavy images only when in view */}
-        {maskedInView ? (
-          <>
-            <MaskedDiv maskType="type-1" size={0.45} className="my-4">
-              <Image src="/vnc-1.jpg" alt="Precision at AB Industries" width={1280} height={720} quality={70} className="object-cover" />
-            </MaskedDiv>
-            <MaskedDiv maskType="type-1" size={0.45} className="rotate-180 my-4">
-              <Image src="/cnc-2.avif" alt="Precision at AB Industries" width={1280} height={720} quality={70} className="object-cover" />
-            </MaskedDiv>
-            <MaskedDiv maskType="type-3" className="my-4">
-              <Image src="/cncoper-2.jpg" alt="Precision at AB Industries" width={1280} height={720} quality={70} className="object-cover" />
-            </MaskedDiv>
-          </>
-        ) : (
-          // lightweight placeholders to preserve layout until images load
-          <>
-            <div className="w-[45%] h-[220px] bg-slate-800/60 rounded-lg" />
-            <div className="w-[45%] h-[220px] bg-slate-800/60 rounded-lg" />
-            <div className="w-full md:w-[30%] h-[220px] bg-slate-800/60 rounded-lg" />
-          </>
-        )}
-      </div>
+      <section className="relative z-10">
+        <Skiper17 />
+      </section>
 
       {/* ================= INDUSTRIES SECTION ================= */}
-      <section ref={industriesRef} className="relative py-28 bg-white overflow-hidden">
+      <section
+        ref={industriesRef}
+        className="relative py-28 bg-white overflow-hidden"
+      >
         <motion.div
           className="absolute -top-32 -left-32 w-[420px] h-[420px] rounded-full blur-[120px] will-change-transform"
-          animate={shouldReduceMotion ? {} : { scale: [1, 1.12, 1], opacity: [0.18, 0.5, 0.18] }}
-          transition={{ duration: 11, repeat: shouldReduceMotion ? 0 : Infinity }}
+          animate={
+            shouldReduceMotion
+              ? {}
+              : { scale: [1, 1.12, 1], opacity: [0.18, 0.5, 0.18] }
+          }
+          transition={{
+            duration: 11,
+            repeat: shouldReduceMotion ? 0 : Infinity,
+          }}
           aria-hidden
         />
         <motion.div
           className="absolute bottom-0 right-0 w-[360px] h-[360px] rounded-full blur-[100px] will-change-transform"
-          animate={shouldReduceMotion ? {} : { scale: [1.04, 0.92, 1.04], opacity: [0.22, 0.48, 0.22] }}
-          transition={{ duration: 12, repeat: shouldReduceMotion ? 0 : Infinity }}
+          animate={
+            shouldReduceMotion
+              ? {}
+              : { scale: [1.04, 0.92, 1.04], opacity: [0.22, 0.48, 0.22] }
+          }
+          transition={{
+            duration: 12,
+            repeat: shouldReduceMotion ? 0 : Infinity,
+          }}
           aria-hidden
         />
 
@@ -569,7 +675,9 @@ export default function ProjectsPage() {
             transition={{ duration: 0.6, delay: 0.2 }}
             className="text-slate-500 max-w-2xl mx-auto mb-16 text-lg"
           >
-            AB Industries delivers precision engineering solutions across a diverse range of industries — from aerospace and defense to medical technology and automation systems.
+            AB Industries delivers precision engineering solutions across a
+            diverse range of industries — from aerospace and defense to medical
+            technology and automation systems.
           </motion.p>
 
           <div className="grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-8">
@@ -605,11 +713,19 @@ export default function ProjectsPage() {
         <motion.h2 {...fadeInView} className="text-4xl font-bold mb-4">
           Let’s Create Your Next Precision Component
         </motion.h2>
-        <motion.p {...fadeInView} transition={{ delay: 0.2 }} className="text-blue-100 mb-10 max-w-2xl mx-auto text-lg">
-          From prototypes to production, we deliver quality machining that drives your innovation forward.
+        <motion.p
+          {...fadeInView}
+          transition={{ delay: 0.2 }}
+          className="text-blue-100 mb-10 max-w-2xl mx-auto text-lg"
+        >
+          From prototypes to production, we deliver quality machining that
+          drives your innovation forward.
         </motion.p>
         <motion.div whileHover={shouldReduceMotion ? {} : { scale: 1.05 }}>
-          <Link href="/contact" className="inline-flex items-center gap-3 bg-white text-blue-700 font-semibold px-8 py-4 rounded-lg shadow-lg hover:bg-blue-100 transition">
+          <Link
+            href="/contact"
+            className="inline-flex items-center gap-3 bg-white text-blue-700 font-semibold px-8 py-4 rounded-lg shadow-lg hover:bg-blue-100 transition"
+          >
             Request a Quote <ArrowRight className="w-5 h-5" />
           </Link>
         </motion.div>

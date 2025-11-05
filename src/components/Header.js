@@ -70,7 +70,7 @@ const Header = () => {
             className="object-contain"
             priority
           />
-          <span className="text-xl font-bold text-blue-800">Industries</span>
+          <span className="text-xl font-bold text-blue-700">Industries</span>
         </Link>
 
         {/* Desktop Navigation */}
